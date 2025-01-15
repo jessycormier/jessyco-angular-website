@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+/* Default light theme styles */
+body {
+  background-color: #ffffff;
+  color: #222;
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+    color: #ffffff;
+  }
+}
