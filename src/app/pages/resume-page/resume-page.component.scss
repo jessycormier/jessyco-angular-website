@@ -1,0 +1,52 @@
+h2 {
+  @apply mb-4;
+}
+
+em {
+  @apply transition-all;
+  @apply font-extralight;
+  @apply underline;
+  @apply decoration-dashed;
+  @apply underline-offset-4;
+
+  &:hover {
+    @apply text-stone-50;
+    @apply decoration-blue-400;
+    @apply underline-offset-8;
+  }
+}
+
+section {
+  @apply mb-8;
+  & > header {
+    @apply mb-4;
+
+    address,
+    time,
+    span {
+      @apply text-stone-300;
+      @apply text-xs;
+    }
+  }
+}
+
+ul > li {
+  @apply transition-colors;
+  &:hover {
+    @apply text-stone-300 !important;
+  }
+}
+
+.comma-list {
+  @apply list-none;
+
+  li {
+    @apply inline;
+    &::after {
+      content: ", ";
+    }
+    &:last-child::after {
+      content: "";
+    }
+  }
+}
