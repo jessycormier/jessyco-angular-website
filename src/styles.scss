@@ -1,8 +1,8 @@
-// Typography Imports
-@import "firacode/distr/fira_code.css";
-
 // Tailwind Preflight resets the base html to make everything common.
 @tailwind base;
+
+// Typography Imports
+@import "firacode/distr/fira_code.css";
 
 // We can override and set the base styles for the html here.
 @layer base {
