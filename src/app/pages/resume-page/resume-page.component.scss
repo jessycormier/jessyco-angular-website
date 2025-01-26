@@ -10,7 +10,7 @@ em {
   @apply underline-offset-4;
 
   &:hover {
-    @apply text-stone-50;
+    @apply text-gray-50;
     @apply decoration-blue-400;
     @apply underline-offset-8;
   }
@@ -24,7 +24,7 @@ section {
     address,
     time,
     span {
-      @apply text-stone-300;
+      @apply text-gray-300;
       @apply text-xs;
     }
   }
@@ -33,7 +33,7 @@ section {
 ul > li {
   @apply transition-colors;
   &:hover {
-    @apply text-stone-300 !important;
+    @apply text-gray-300 !important;
   }
 }
 
