@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* @layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities); */
+
+/* @import "assets/fonts/firacode/fira_code.css"; */
+
+@layer base {
+  html {
+    @apply antialiased;
+    @apply bg-stone-100;
+  }
+
+  p {
+    @apply pb-8;
+  }
+
+  ul {
+    list-style-position: outside;
+    @apply pl-8;
+  }
+  ul li {
+    list-style-type: "- ";
+  }
+  ol {
+    list-style-position: inside;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+}
+
+@layer components {
+  /* Comma List Component */
+  .comma-list {
+    @apply list-none;
+  }
+
+  .comma-list li {
+    @apply inline;
+  }
+
+  .comma-list li::after {
+    content: ", ";
+  }
+
+  .comma-list li:last-child::after {
+    content: "";
+  }
+}

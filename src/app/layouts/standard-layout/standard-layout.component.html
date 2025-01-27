@@ -1,32 +1,19 @@
-<div class="sm:container mx-auto">
-  <header class="bg-gray-800 text-white p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <a href="#" class="text-gray-300 hover:bg-gray-300 hover:text-black px-1"
-        >Jessy.Co</a
-      >
-      <nav>
-        <a
-          href="#"
-          class="text-gray-300 hover:bg-gray-300 hover:text-black px-1"
-          >Resume</a
-        >
-      </nav>
-    </div>
-  </header>
-
+<div class="sm:container mx-auto mt-16">
   <main class="min-h-96">
     <router-outlet />
   </main>
-  <footer class="mt-8 text-sm text-gray-600 border-t border-gray-900 pt-8">
+  <footer class="mt-8 text-sm text-gray-600 border-t border-gray-300 pt-8">
     <div class="flex justify-between">
       <div>
+        <strong class="mb-1">Site Links</strong>
         <a routerLink="/" class="block">Home</a>
-        <a href="/resume" target="_blank" class="block">Resume</a>
+        <a routerLink="/resume" class="block">Resume</a>
       </div>
       <div>
-        <!-- <a href="https://twitter.com/jessycormier" class="block">Twitter</a> -->
+        <strong class="mb-1">Socials</strong>
+        <a href="https://twitter.com/jessycormier" class="block">Twitter</a>
         <a href="https://linkedin.com/u/jessyco" class="block">LinkedIn</a>
-        <!-- <a href="https://bsky.app/profile/jessy.co" class="block">Bluesky</a> -->
+        <a href="https://bsky.app/profile/jessy.co" class="block">Bluesky</a>
         <a href="https://github.com/jessycormier" class="block">GitHub</a>
       </div>
     </div>
