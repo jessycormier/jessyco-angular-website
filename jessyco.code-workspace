@@ -26,6 +26,26 @@
       "Kazaa",
       "NBCC",
       "Thinkmax"
-    ]
+    ],
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#5a5d5a",
+      "activityBar.background": "#5a5d5a",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#8787d7",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#e7e7e799",
+      "sash.hoverBorder": "#5a5d5a",
+      "statusBar.background": "#414341",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#5a5d5a",
+      "statusBarItem.remoteBackground": "#414341",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#414341",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#41434199",
+      "titleBar.inactiveForeground": "#e7e7e799"
+    },
+    "peacock.color": "#414341"
   }
 }

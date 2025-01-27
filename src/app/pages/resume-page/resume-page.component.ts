@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
+import { WordComponent } from '../../components/word/word.component';
 
 @Component({
   selector: 'app-resume-page',
-  imports: [],
+  imports: [WordComponent],
   templateUrl: './resume-page.component.html',
-  styleUrl: './resume-page.component.scss'
 })
-export class ResumePageComponent {
-
-}
+export class ResumePageComponent {}

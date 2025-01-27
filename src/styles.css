@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Fira Code";
+  src:
+    url("/assets/fonts/firacode/woff2/FiraCode-Regular.woff2") format("woff2"),
+    url("/assets/fonts/firacode/ttf/FiraCode-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Fire Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace; /* ... */
+}
+
+@layer base {
+  html {
+    @apply antialiased;
+    @apply bg-stone-100;
+  }
+
+  p {
+    @apply pb-8;
+  }
+
+  ul {
+    list-style-position: outside;
+    @apply pl-8;
+  }
+  ul li {
+    list-style-type: "- ";
+  }
+  ol {
+    list-style-position: inside;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+}
+
+@layer components {
+  /* Link Component */
+  .link {
+    @apply text-white hover:bg-white hover:text-black p-0 hover:px-2 transition-all;
+  }
+  /* Comma List Component */
+  .comma-list {
+    @apply list-none;
+  }
+
+  .comma-list li {
+    @apply inline;
+  }
+
+  .comma-list li::after {
+    content: ", ";
+  }
+
+  .comma-list li:last-child::after {
+    content: "";
+  }
+}
