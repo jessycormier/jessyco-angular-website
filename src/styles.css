@@ -1,13 +1,22 @@
+@font-face {
+  font-family: "Fira Code";
+  src:
+    url("/assets/fonts/firacode/woff2/FiraCode-Regular.woff2") format("woff2"),
+    url("/assets/fonts/firacode/ttf/FiraCode-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* @layer theme, base, components, utilities;
-
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities); */
-
-/* @import "assets/fonts/firacode/fira_code.css"; */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono: "Fire Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace; /* ... */
+}
 
 @layer base {
   html {
@@ -35,6 +44,10 @@
 }
 
 @layer components {
+  /* Link Component */
+  .link {
+    @apply text-white hover:bg-white hover:text-black p-0 hover:px-2 transition-all;
+  }
   /* Comma List Component */
   .comma-list {
     @apply list-none;

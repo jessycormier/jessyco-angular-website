@@ -38,6 +38,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@tonsky/firacode",
+                "output": "assets/fonts/firacode"
               }
             ],
             "styles": [
