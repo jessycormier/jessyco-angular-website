@@ -1,0 +1,8 @@
+<div *ngFor="let post of posts" class="bg-white shadow-md rounded-lg p-4 mb-4">
+  <div class="mb-2">
+    <h5 class="text-xl font-bold">{{ post.title }}</h5>
+  </div>
+  <div>
+    <a [href]="'posts/'+post.url" class="text-blue-500 hover:underline">Read More</a>
+  </div>
+</div>

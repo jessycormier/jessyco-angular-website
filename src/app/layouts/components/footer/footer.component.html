@@ -1,0 +1,21 @@
+<footer class="mt-8 text-sm text-gray-600 border-t border-gray-300 pt-8">
+  <div class="flex justify-between">
+    <div class="flex">
+      <div class="mr-16">
+        <strong class="mb-1">Site Links</strong>
+        <a *ngFor="let link of siteLinks" [routerLink]="link.routerLink" class="block">{{ link.text }}</a>
+      </div>
+      <div class="opacity-25">
+        <strong class="mb-1">Testing Links</strong>
+        <a *ngFor="let link of otherLinks" [href]="link.href" class="block">{{ link.text }}</a>
+      </div>
+    </div>
+    <div>
+      <strong class="mb-1">Socials</strong>
+      <a *ngFor="let link of socialLinks" [href]="link.href" class="block">{{ link.text }}</a>
+    </div>
+  </div>
+  <div class="my-4 text-center">
+    &copy; 2025 Jessy.co. All rights reserved.
+  </div>
+</footer>

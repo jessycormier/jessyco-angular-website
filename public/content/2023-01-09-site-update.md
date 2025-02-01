@@ -45,7 +45,7 @@ and after
 	<meta property="og:image:width" content="1200" />
     <meta property="og:image" content="{siteLink}/polybg/1200x630/{slugify(title)}.svg" />
 
-    <meta property="og:site_name" content="Jessy.Co" />
+    <meta property="og:site_name" content="Jessy.co" />
 	<meta property="og:title" content="{title}" />
 	<meta property="og:type" content="object" />
 	<meta property="og:url" content="{siteLink + data.path}" />
