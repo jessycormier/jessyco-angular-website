@@ -1,24 +1,11 @@
+
+@if (!isHomePage) {
+  <app-back-to-home-button></app-back-to-home-button>
+}
+
 <div class="sm:container mx-auto mt-16">
   <main class="min-h-96">
     <router-outlet />
   </main>
-  <footer class="mt-8 text-sm text-gray-600 border-t border-gray-300 pt-8">
-    <div class="flex justify-between">
-      <div>
-        <strong class="mb-1">Site Links</strong>
-        <a routerLink="/" class="block">Home</a>
-        <a routerLink="/resume" class="block">Resume</a>
-      </div>
-      <div>
-        <strong class="mb-1">Socials</strong>
-        <a href="https://twitter.com/jessycormier" class="block">Twitter</a>
-        <a href="https://linkedin.com/u/jessyco" class="block">LinkedIn</a>
-        <a href="https://bsky.app/profile/jessy.co" class="block">Bluesky</a>
-        <a href="https://github.com/jessycormier" class="block">GitHub</a>
-      </div>
-    </div>
-    <div class="my-4 text-center">
-      &copy; 2025 Jessy.Co. All rights reserved.
-    </div>
-  </footer>
+  <app-footer></app-footer>
 </div>

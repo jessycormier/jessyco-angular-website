@@ -1,4 +1,4 @@
-# Jessy.Co
+# Jessy.co
 
 ## Development server
 
