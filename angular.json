@@ -46,7 +46,7 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles/main.css",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [],
@@ -110,7 +110,7 @@
               }
             ],
             "styles": [
-              "src/styles.css",
+              "src/styles/main.css",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [

@@ -1,0 +1,32 @@
+app-link {
+  /* For accessability */
+  display: inline-block;
+  min-width: 24px;
+  min-height: 24px;
+  pointer-events: none;
+}
+
+app-link a {
+  @apply pointer-events-auto mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all;
+}
+
+app-link a:hover {
+  @apply bg-gray-200;
+}
+
+app-link a::before {
+  content: "[";
+  @apply pr-1 pl-1 font-semibold transition-all;
+}
+app-link a:hover::before {
+  @apply animate-[var(--animate-text-blink)] pr-2 pl-0;
+  content: "[";
+}
+
+app-link a::after {
+  content: "]";
+  @apply pr-1 pl-1 font-semibold transition-all;
+}
+app-link a:hover::after {
+  @apply animate-[var(--animate-text-blink)] pr-0 pl-2;
+}
