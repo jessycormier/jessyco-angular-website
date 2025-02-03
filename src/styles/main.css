@@ -80,3 +80,5 @@
     content: "";
   }
 }
+/* Components */
+@import "./link.css";
