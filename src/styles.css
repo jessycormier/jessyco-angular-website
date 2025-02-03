@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
 @font-face {
   font-family: "Fira Code";
   src:
@@ -7,15 +10,23 @@
   font-style: normal;
 }
 
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
-
 @theme {
   --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: "Fire Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace; /* ... */
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  @keyframes text-blink {
+    0%,
+    100% {
+      color: var(--color-black);
+    }
+    50% {
+      color: var(--color-white);
+    }
+  }
+  --animate-text-blink: text-blink 1s infinite;
 }
 
 @layer base {
@@ -23,7 +34,10 @@
     @apply antialiased;
     @apply bg-stone-100;
   }
-
+  ::selection {
+    background-color: var(--color-yellow-400);
+    color: var(--color-gray-900);
+}
   p {
     @apply pb-8;
   }
@@ -46,8 +60,9 @@
 @layer components {
   /* Link Component */
   .link {
-    @apply text-white hover:bg-white hover:text-black p-0 hover:px-2 transition-all;
+    @apply p-0 text-white transition-all hover:bg-white hover:px-2 hover:text-black;
   }
+
   /* Comma List Component */
   .comma-list {
     @apply list-none;

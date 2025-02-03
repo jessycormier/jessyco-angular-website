@@ -1,1 +1,9 @@
-{ "plugins": { "@tailwindcss/postcss": {} } }
+{
+  "plugins": {
+    "@tailwindcss/postcss": {
+      "optimize": {
+        "minify": true
+      }
+    }
+  }
+}
