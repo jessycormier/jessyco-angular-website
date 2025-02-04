@@ -2,9 +2,9 @@
   <section>
     <strong class="mb-1">Testing Links</strong>
     <div class="flex flex-col">
-      <app-link [link]="'/posts'">Posts</app-link>
+      <app-link [routerLink]="'/posts'">Posts</app-link>
       @for (link of otherLinks; track link.routerLink) {
-        <app-link [link]="link.routerLink">{{ link.text }}</app-link>
+        <app-link [routerLink]="link.routerLink">{{ link.text }}</app-link>
       }
     </div>
   </section>

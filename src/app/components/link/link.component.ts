@@ -1,12 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink, UrlTree } from '@angular/router';
 
 @Component({
   selector: 'app-link',
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './link.component.html',
 })
 export class LinkComponent {
-  @Input() link!: string | any[] | UrlTree | null | undefined;
-  @Input() externalLink!: string;
+  @Input() routerLink!: string | any[] | UrlTree | null | undefined;
+  @Input() href!: string;
 }

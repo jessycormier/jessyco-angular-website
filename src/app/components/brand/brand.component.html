@@ -1,0 +1,15 @@
+<a routerLink="/" class="{{ cssClasses }} group font-mono text-center flex items-center align-middle" title="Link to home">
+  @if (showLogo) {
+    <span class="mr-2">
+      <app-logo
+        svgClasses="fill-black w-10 h-10 transition-all"
+        [lbClasses]="bracketColorCss"
+        [rbClasses]="bracketColorCss"
+        [jClasses]="letterColorCss"
+        [cClasses]="letterColorCss" />
+    </span>
+  }
+  <div>
+    <app-jessy-cormier [cssClasses]="textCssClasses" />
+  </div>
+</a>

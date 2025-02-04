@@ -1,3 +1,16 @@
-<a [href]="externalLink" [routerLink]="link" role="link">
+<ng-template #linkContent>
   <ng-content></ng-content>
-</a>
+</ng-template>
+
+@if (routerLink != null || undefined) {
+  <a [routerLink]="routerLink">
+    <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+  </a>
+} @else if (href != null || "" || undefined) {
+  <a [attr.href]="href">
+    <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+  </a>
+} @else {
+  <!-- No Link Data -->
+  <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+}
