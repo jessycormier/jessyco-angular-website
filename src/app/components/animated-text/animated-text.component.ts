@@ -1,5 +1,5 @@
-import { Component, Host, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-animated-text',
