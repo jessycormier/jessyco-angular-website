@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { PostListItem } from '../post-list-item.interface';
+import {Component} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {PostListItem} from '../post-list-item.interface';
 
 @Component({
   standalone: false,

@@ -1,10 +1,11 @@
 import {CommonModule} from '@angular/common';
 import {Component} from '@angular/core';
 import {LinkComponent} from '../../../components/link/link.component';
+import { BrandComponent } from "../../../components/brand/brand.component";
 
 @Component({
   selector: 'app-footer',
-  imports: [CommonModule, LinkComponent],
+  imports: [CommonModule, LinkComponent, BrandComponent],
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
@@ -20,5 +21,4 @@ export class FooterComponent {
     {href: 'https://bsky.app/profile/jessy.co', text: 'Bluesky'},
     {href: 'https://github.com/jessycormier', text: 'GitHub'},
   ];
-
 }

@@ -25,14 +25,14 @@ The logo was created just to give some kind of fluidity in the branding of the s
 With the logo being an SVG now in svelte I can componentize it and control it a bit which has been fun.
 
 <Logo 
-    svgClasses="fill-black dark:fill-white w-10 h-10 transition-all group " 
+    svgClasses="fill-black w-10 h-10 transition-all group " 
     jClasses="group-hover:animate-bounce delay-150  from-indigo-500 via-purple-500 to-amber-500 bg-gradient-to-t"
     cClasses="group-hover:animate-bounce delay-300"
     rbClasses="group-hover:animate-bounce delay-500"
     lbClasses="group-hover:animate-bounce delay-700"
 /> - try changing dark/light mode for extra effects <small>(might not be possible on mobile sorry)</small>.
 <br>
-<Logo  svgClasses="fill-black dark:fill-white w-10 h-10 transition-all hover:animate-spin"  /> - Hover over with mouse to spin. (maybe click and hold with mobile?)
+<Logo  svgClasses="fill-black w-10 h-10 transition-all hover:animate-spin"  /> - Hover over with mouse to spin. (maybe click and hold with mobile?)
 
 <br><br>
 

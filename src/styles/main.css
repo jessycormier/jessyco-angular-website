@@ -11,11 +11,9 @@
 }
 
 @theme {
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: "Fire Code", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: "Fire Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
   @keyframes text-blink {
     0%,
@@ -37,7 +35,7 @@
   ::selection {
     background-color: var(--color-yellow-400);
     color: var(--color-gray-900);
-}
+  }
   p {
     @apply pb-8;
   }
@@ -55,6 +53,10 @@
   ol li {
     list-style-type: decimal;
   }
+}
+
+@utility container {
+  margin-inline: auto;
 }
 
 @layer components {

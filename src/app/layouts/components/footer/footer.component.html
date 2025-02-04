@@ -1,23 +1,26 @@
-<footer class="mt-8 border-t border-gray-300 pt-8 text-sm text-gray-600">
-  <div class="flex justify-between">
-    <div class="flex">
-      <div class="mr-16">
-        <strong class="mb-1">Site Links</strong>
-        <div class="flex flex-col">
-          @for (link of siteLinks; track link.routerLink) {
-            <app-link [link]="link.routerLink">{{ link.text }}</app-link>
-          }
-        </div>
+<footer class="border-t">
+  <div class="grid grid-cols-2 divide-x-1">
+    <div class="px-5 py-6">
+      <div class="mb-5">
+        <strong>Site Links</strong>
+      </div>
+      <div class="flex flex-col">
+        @for (link of siteLinks; track link.routerLink) {
+          <app-link [routerLink]="link.routerLink">{{ link.text }}</app-link>
+        }
       </div>
     </div>
-    <div>
-      <strong class="mb-1">Socials</strong>
+    <div class="px-5 py-6">
+      <div class="mb-5">
+        <strong>Socials</strong>
+      </div>
       <div class="flex flex-col">
         @for (link of socialLinks; track link.href) {
-          <app-link [externalLink]="link.href">{{ link.text }}</app-link>
+          <app-link [href]="link.href">{{ link.text }}</app-link>
         }
       </div>
     </div>
   </div>
-  <div class="my-4 text-center">&copy; 2025 Jessy.co. All rights reserved.</div>
 </footer>
+
+<div class="border-t px-5 py-6 text-sm flex flex-row gap-1">&copy; 2025 <app-brand [showLogo]="false" />. All rights reserved.</div>
