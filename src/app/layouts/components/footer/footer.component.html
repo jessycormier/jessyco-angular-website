@@ -1,9 +1,9 @@
-<footer class="border-t">
-  <div class="grid grid-cols-2 divide-x-1">
+<footer class="border-t-2 dark:border-stone-800">
+  <div class="grid grid-cols-2 divide-x-2 dark:divide-gray-600">
     <div class="px-5 py-6">
       <div class="mb-5">
         <strong>Site Footer Links</strong>
-        <em class="opacity-25 text-xs ml-4">One day, there might be useful links here.</em>
+        <em class="ml-4 text-xs opacity-25">One day, there might be useful links here.</em>
       </div>
       <div class="flex flex-col">
         @for (link of siteLinks; track link.routerLink) {
@@ -24,4 +24,8 @@
   </div>
 </footer>
 
-<div class="border-t px-5 py-6 text-sm flex flex-row gap-1">&copy; 2025 <app-brand [showLogo]="false" />. All rights reserved.</div>
+<div class="flex flex-row gap-1 border-t-2 px-5 py-6 text-sm dark:border-stone-800">
+  &copy; 2025
+  <app-brand [showLogo]="false" />
+  . All rights reserved.
+</div>

@@ -7,11 +7,13 @@ app-link {
 }
 
 app-link a {
-  @apply pointer-events-auto mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all;
+  @apply pointer-events-auto relative mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all;
+  @apply dark:text-stone-200;
 }
 
 app-link a:hover {
   @apply bg-gray-200;
+  @apply dark:text-black;
 }
 
 app-link a::before {
@@ -29,4 +31,14 @@ app-link a::after {
 }
 app-link a:hover::after {
   @apply animate-[var(--animate-text-blink)] pr-0 pl-2;
+}
+
+
+/* Active Link Indicator */
+app-link a span {
+  @apply hidden;
+}
+
+app-link a.active span {
+  @apply inline-block pr-1 text-stone-900 dark:text-stone-100;
 }
