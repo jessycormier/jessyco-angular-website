@@ -3,11 +3,9 @@ import { CenterLayoutComponent } from './layouts/center-layout/center-layout.com
 import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
 import { StandardLayoutComponent } from './layouts/standard-layout/standard-layout.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ResumePageComponent } from './pages/resume-page/resume-page.component';
 import { Status404PageComponent } from './pages/status-404-page/status-404-page.component';
 import { Status418PageComponent } from './pages/status-418-page/status-418-page.component';
 import { Status500PageComponent } from './pages/status-500-page/status-500-page.component';
-import { TestPageComponent } from './pages/test-page/test-page.component';
 
 export const routes: Routes = [
   // Standard Layout
@@ -19,11 +17,6 @@ export const routes: Routes = [
         path: '',
         component: HomePageComponent,
       },
-      {
-        path: 'posts',
-        loadChildren: () =>
-          import('./posts/posts.module').then((m) => m.PostsModule),
-      },
     ],
   },
   // Empty Layout
@@ -32,12 +25,12 @@ export const routes: Routes = [
     component: EmptyLayoutComponent,
     children: [
       {
-        path: 'resume',
-        component: ResumePageComponent,
+        path: 'notes',
+        loadChildren: () => import('./notes/notes.module').then((m) => m.NotesModule),
       },
       {
-        path: 'test',
-        component: TestPageComponent,
+        path: 'resume',
+        loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
       },
     ],
   },

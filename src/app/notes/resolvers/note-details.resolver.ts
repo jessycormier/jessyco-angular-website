@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { ResolveFn, Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
-import { UnifiedService } from '../services/unified.service';
-import { PostData } from './post-data.interface';
+import { NoteData } from '../interfaces/note-data.interface';
+import { UnifiedService } from '../../services/unified.service';
 
-export const postResolver: ResolveFn<any | PostData | null> = (route) => {
+export const noteDetailsResolver: ResolveFn<any | NoteData | null> = (route) => {
   const http = inject(HttpClient);
   const unifiedService = inject(UnifiedService);
   const router = inject(Router);

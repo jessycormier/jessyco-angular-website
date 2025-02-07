@@ -3,14 +3,14 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   standalone: false,
-  templateUrl: './post-page.component.html',
+  templateUrl: './note-page.component.html',
 })
-export class PostPageComponent {
+export class NotePageComponent {
   markdownContent: string | null = null;
 
   constructor(private route: ActivatedRoute) {
-    this.route.data.subscribe(({post}) => {
-      this.markdownContent = post.markdown; // Accessing resolved data
+    this.route.data.subscribe(({ data }) => {
+      this.markdownContent = data.markdown; // Accessing resolved data
     });
   }
 }
