@@ -1,7 +1,7 @@
 <ul>
   @for (post of posts; track $index) {
     <li>
-      <app-link routerLink="'posts/'+post.url">{{ post.title }}</app-link>
+      <app-link [routerLink]="post.url">{{ post.title }}</app-link>
     </li>
   }
 </ul>

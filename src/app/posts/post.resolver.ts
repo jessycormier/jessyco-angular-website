@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { ResolveFn, Router } from '@angular/router';
-// import matter from 'gray-matter';
-import fm from 'front-matter';
 import { catchError, map, of, throwError } from 'rxjs';
+import { UnifiedService } from '../services/unified.service';
 import { PostData } from './post-data.interface';
 
 export const postResolver: ResolveFn<any | PostData | null> = (route) => {
   const http = inject(HttpClient);
+  const unifiedService = inject(UnifiedService);
   const router = inject(Router);
   const id = route.paramMap.get('id');
 
@@ -20,11 +20,8 @@ export const postResolver: ResolveFn<any | PostData | null> = (route) => {
 
   return http.get(filePath, { responseType: 'text' }).pipe(
     map((markdown) => {
-      const parsed = fm(markdown);
-      return {
-        frontmatter: parsed.attributes,
-        markdown: parsed.body,
-      };
+      const parsedMarkdown = unifiedService.parseMarkdown(markdown);
+      return parsedMarkdown || { frontmatter: null, markdown: null };
     }),
     catchError((error) => {
       console.log({
