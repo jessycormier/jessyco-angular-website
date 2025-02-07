@@ -11,7 +11,7 @@ import { BrandComponent } from "../../../components/brand/brand.component";
 export class FooterComponent {
   siteLinks = [
     {routerLink: '/', text: 'Home'},
-    {routerLink: '/test', text: 'Test Page'},
+    {routerLink: '/notes', text: 'Notes'},
     {routerLink: '/resume', text: 'Resume'},
   ];
 

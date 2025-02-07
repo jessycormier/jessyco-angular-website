@@ -1,15 +1,1 @@
-[
-  { "url": "test", "title": "test" },
-  { "url": "2022-09-12-making-a-mark", "title": "Marking a mark" },
-  { "url": "2022-12-03-going-back-home", "title": "Going back home" },
-  { "url": "2022-12-29-guess-i-lied", "title": "Guess I lied" },
-  { "url": "2022-12-30-site-update", "title": "Site Update" },
-  { "url": "2023-01-03-vscode-user-settings", "title": "vscode user settings" },
-  { "url": "2023-01-08-site-update", "title": "site update" },
-  { "url": "2023-01-09-site-update", "title": "site update" },
-  { "url": "2023-01-28-release-versioning", "title": "release versioning" },
-  { "url": "2023-03-04-site-update", "title": "site update" },
-  { "url": "2023-05-07-small-update-may-2023", "title": "small update may 2023" },
-  { "url": "2023-12-17-small-update", "title": "small update" },
-  { "url": "2024-01-02-small-update", "title": "small update" }
-]
+[{ "url": "test", "title": "test" }]

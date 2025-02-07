@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* This is to enable dark mode via css class */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @font-face {
   font-family: "Fira Code";
   src:
@@ -24,18 +27,36 @@
       color: var(--color-white);
     }
   }
+
+  @keyframes text-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
   --animate-text-blink: text-blink 1s infinite;
+  --animate-text-pulse: text-pulse 1200ms cubic-bezier(0, 1.163, 0.106, 0.943) infinite;
 }
 
 @layer base {
   html {
+    @apply min-h-full h-full;
     @apply antialiased;
-    @apply bg-stone-100;
+    @apply bg-stone-100 dark:bg-stone-950 dark:text-white;
   }
+
+  body {
+    @apply min-h-full bg-linear-to-r/decreasing from-indigo-500/10 to-teal-400/10;
+  }
+
   ::selection {
     background-color: var(--color-yellow-400);
-    color: var(--color-gray-900);
   }
+
   p {
     @apply pb-8;
   }
@@ -58,6 +79,28 @@
 @utility container {
   margin-inline: auto;
 }
+
+/* Typography plugin */
+/* @utility prose {
+  --tw-prose-body: var(--color-primary);
+  --tw-prose-headings: var(--color-primary);
+  --tw-prose-bold: var(--color-primary);
+  --tw-prose-quote-borders: var(--color-slate-300);
+  --tw-prose-quotes: var(--color-muted-foreground);
+  --tw-prose-code: var(--color-primary);
+
+  code {
+    &::before,
+    &::after {
+      display : none ;
+    }
+    text-wrap : nowrap ;
+  }
+
+  blockquote {
+    font-weight : 400 ;
+  }
+} */
 
 @layer components {
   /* Link Component */

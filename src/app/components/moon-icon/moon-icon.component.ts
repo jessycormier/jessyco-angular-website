@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
   styles: [],
 })
 export class MoonIconComponent {
-  @Input() colorClasses = 'text-gray-800';
+  @Input() colorClasses = 'text-gray-800 dark:text-gray-300';
   @Input() widthClasses = 'w-4 h-4';
 }
