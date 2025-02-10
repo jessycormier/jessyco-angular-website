@@ -24,22 +24,8 @@
       </div>
     </div>
   </header>
-  
-  <div class="relative m-auto mb-4 max-w-7xl p-4 px-8 text-sm md:px-32 print:hidden" role="alert" #help>
-    <app-link class="absolute top-4 left-32 animate-pulse" (click)="message.classList.remove('hidden'); help.classList.add('hidden')">Show Help</app-link>
-  </div>
 
-  <div class="relative m-auto mb-4 max-w-7xl hidden bg-blue-50 p-4 px-8 text-sm md:px-32 dark:bg-gray-800 print:hidden" role="alert" #message>
-    <span class="font-medium">Hey!</span>
-    <p>Thanks for checking out my resume.</p>
-
-    By the way, Clicking on words like &gt;&gt;
-    <app-resume-word value="Angular">Angular</app-resume-word>
-    &lt;&lt; will let you see all references ( like
-    <app-resume-word value="Angular">angular</app-resume-word>
-    ) to that topic. It also shows what word is highlighted on the bottom of the screen.
-    <app-link class="absolute top-4 right-1.5 animate-pulse" (click)="message.classList.add('hidden'); help.classList.remove('hidden')">Close</app-link>
-  </div>
+  <app-resume-help-section></app-resume-help-section>
 
   <div class="m-auto max-w-7xl p-8 px-8 md:px-32">
     <section class="mb-8">
@@ -60,7 +46,7 @@
         <header class="mb-4">
           <h6 class="text-lg">Senior Front-End Developer</h6>
           <address class="text-xs text-gray-800 dark:text-gray-300">Thinkmax, Moncton, NB (Office, Remote)</address>
-          <time class="text-xs text-gray-800 dark:text-gray-300">September 2022 to Present</time>
+          <app-resume-date-range start="September 2022" end="Present"></app-resume-date-range>
         </header>
         <ul>
           <li class="transition-colors">
@@ -78,7 +64,7 @@
             ,
             <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             and
-            <app-resume-word value="Optimizely CMS">Optimizely CMS</app-resume-word>
+            <app-resume-word value="Optimizely">Optimizely CMS</app-resume-word>
             .
           </li>
           <li class="transition-colors">Documented front-end best practices, contributing to the organization's knowledge base to improve workflows.</li>
@@ -93,7 +79,7 @@
             Provided guidance and teaching opportunities to team members and management, enhancing the team's overall skill set and efficiency.
           </li>
           <li class="transition-colors">
-            Developed a B2B solution for Royal Canadian Mints using
+            Developed a B2B solution for Royal Canadian Mint using
             <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             ,
             <app-resume-word value="Optimizely">Optimizely</app-resume-word>
@@ -106,9 +92,9 @@
             ,
             <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             , and
-            <app-resume-word value="Tailwind CSS">Tailwind CSS</app-resume-word>
+            <app-resume-word value="Tailwind">Tailwind CSS</app-resume-word>
             , in alignment with
-            <app-resume-word value="Optimizely CMS">Optimizely CMS</app-resume-word>
+            <app-resume-word value="Optimizely">Optimizely CMS</app-resume-word>
             product specifications.
           </li>
           <li class="transition-colors">Contributed to the knowledge base for best practices in front-end development, improving processes and workflows.</li>
@@ -120,31 +106,29 @@
         <header class="mb-4">
           <h6 class="text-lg">Senior Front-End Developer</h6>
           <address class="text-xs text-gray-800 dark:text-gray-300">Aspen Group, Moncton, NB (Office, Remote)</address>
-          <time datetime="2017-05">May 2017</time>
-          <span class="text-xs text-gray-800 dark:text-gray-300">to</span>
-          <time datetime="2022-08">August 2022</time>
+          <app-resume-date-range start="May 2017" end="August 2022"></app-resume-date-range>
         </header>
         <ul>
           <li class="transition-colors">
             Built and launched a customer relationship management system (CRM) and a student application platform that supports older browser technology (
-            <app-resume-word value="Internet Explorer 9">Internet Explorer 9</app-resume-word>
+            <app-resume-word value="Internet Explorer">Internet Explorer 9</app-resume-word>
             ).
           </li>
           <li class="transition-colors">Created an API library to communicate between internal products and 3rd party products.</li>
           <li class="transition-colors">
             Developed stand-alone libraries and components that can be consumed by other developers via
-            <app-resume-word value="NPM">NPM</app-resume-word>
+            <app-resume-word value="Npm">NPM</app-resume-word>
             /
             <app-resume-word value="NuGet">NuGet</app-resume-word>
             using the
-            <app-resume-word value="Azure DevOps Artifacts">Azure DevOps Artifacts</app-resume-word>
+            <app-resume-word value="Azure DevOps">Azure DevOps Artifacts</app-resume-word>
             platform.
           </li>
           <li class="transition-colors">
             Developed design system components using
             <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             ,
-            <app-resume-word value="Tailwind CSS">Tailwind CSS</app-resume-word>
+            <app-resume-word value="Tailwind">Tailwind CSS</app-resume-word>
             , and
             <app-resume-word value="Storybooks">Storybooks</app-resume-word>
             .
@@ -167,22 +151,25 @@
         <header class="mb-4">
           <h6 class="text-lg">Web Developer</h6>
           <address class="text-xs text-gray-800 dark:text-gray-300">Ironflow Technologies, Dieppe, NB</address>
-          <time datetime="2012-11">November 2012</time>
-          <span class="text-xs text-gray-800 dark:text-gray-300">to</span>
-          <time datetime="2017-04">April 2017</time>
+          <app-resume-date-range start="November 2012" end="April 2017"></app-resume-date-range>
         </header>
         <ul>
           <li class="transition-colors">
             Create and maintain our products in
-            <app-resume-word value=".Net">ASP .Net</app-resume-word>
-            MVC / WebForms in both
+            <app-resume-word value=".Net">ASP.Net</app-resume-word>
+            <app-resume-word value="MVC">MVC</app-resume-word>
+            /
+            <app-resume-word value="WebForms">WebForms</app-resume-word>
+            in both
             <app-resume-word value="C#">C#</app-resume-word>
             and
             <app-resume-word value="VB">VB (Visual Basics)</app-resume-word>
             .
           </li>
           <li class="transition-colors">
-            Front-end development including building front-end design framework(s) for other developers and products, design UI and UX.
+            Front-end development including building front-end design framework(s) for other developers and products, design
+            <app-resume-word value="UI and UX">UI and UX</app-resume-word>
+            .
           </li>
           <li class="transition-colors">Project research and planning.</li>
           <li class="transition-colors">Database development and planning.</li>
@@ -195,20 +182,20 @@
         <header class="mb-4">
           <h6 class="text-lg">Instructor at NBCC</h6>
           <address class="text-xs text-gray-800 dark:text-gray-300">Moncton NBCC, Moncton, NB</address>
-          <time datetime="2013-12">December 2013</time>
-          <span class="text-xs text-gray-800 dark:text-gray-300">to</span>
-          <time datetime="2014-04">April 2014</time>
+          <app-resume-date-range start="December 2013" end="April 2014"></app-resume-date-range>
         </header>
         <ul>
           <li class="transition-colors">
             Creating and Reviewing course curriculum for students in
-            <app-resume-word value="PHP">PHP</app-resume-word>
+            <app-resume-word value="Php">PHP</app-resume-word>
             &
             <app-resume-word value="MySQL">MySQL</app-resume-word>
             .
           </li>
           <li class="transition-colors">
-            Deliver course curriculum through Blackboard Learning Management System (LMS) and help them catch up on any missing lessons from other courses.
+            Deliver course curriculum through Blackboard
+            <app-resume-word value="LMS">Learning Management System (LMS)</app-resume-word>
+            and help them catch up on any missing lessons from other courses.
           </li>
           <li class="transition-colors">Creating websites for clients, providing technical support and education.</li>
         </ul>
@@ -218,20 +205,20 @@
         <header class="mb-4">
           <h6 class="text-lg">Web Developer</h6>
           <address class="text-xs text-gray-800 dark:text-gray-300">Atrinsic, Dieppe, NB</address>
-          <time datetime="2009-05">May 2009</time>
-          <span class="text-xs text-gray-800 dark:text-gray-300">to</span>
-          <time datetime="2010-12">December 2010</time>
+          <app-resume-date-range start="May 2009" end="December 2010"></app-resume-date-range>
         </header>
         <ul>
           <li class="transition-colors">
-            Development on sites such as Kazaa (Python), corporate site, ez-tracks (
+            Development on sites such as Kazaa (
+            <app-resume-word value="Python">Python</app-resume-word>
+            ), corporate site, ez-tracks (
             <app-resume-word value="Cold Fusion">Cold Fusion</app-resume-word>
             ), ShopIt (
-            <app-resume-word value="PHP">PHP</app-resume-word>
+            <app-resume-word value="Php">PHP</app-resume-word>
             ), Select Machinery INC (
-            <app-resume-word value=".Net">ASP .Net</app-resume-word>
+            <app-resume-word value=".Net">ASP.Net</app-resume-word>
             ), BlueworldPools (
-            <app-resume-word value=".Net">ASP .Net</app-resume-word>
+            <app-resume-word value=".Net">ASP.Net</app-resume-word>
             ).
           </li>
           <li class="transition-colors">Team meetings to create site wireframe, database design.</li>
@@ -247,120 +234,18 @@
       </header>
 
       <div class="flex flex-wrap">
-        <section class="mb-8 basis-1/3 pr-16">
-          <header class="mb-4">Frameworks and Technologies</header>
-          <ul class="comma-list">
-            <li class="transition-colors">Angular (v4+)</li>
-            <li class="transition-colors">React</li>
-            <li class="transition-colors">NextJS</li>
-            <li class="transition-colors">SvelteKit</li>
-            <li class="transition-colors">Astro</li>
-            <li class="transition-colors">Vue</li>
-            <li class="transition-colors">TypeScript</li>
-            <li class="transition-colors">JavaScript</li>
-            <li class="transition-colors">jQuery</li>
-            <li class="transition-colors">Node</li>
-            <li class="transition-colors">Deno</li>
-            <li class="transition-colors">Electron</li>
-            <li class="transition-colors">npm</li>
-            <li class="transition-colors">yarn</li>
-            <li class="transition-colors">pnpm</li>
-            <li class="transition-colors">webpack</li>
-            <li class="transition-colors">gulp</li>
-            <li class="transition-colors">grunt</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3 pr-16">
-          <header class="mb-4">Design and Development</header>
-          <ul class="comma-list">
-            <li class="transition-colors">HTML</li>
-            <li class="transition-colors">Markdown</li>
-            <li class="transition-colors">Emmet</li>
-            <li class="transition-colors">CSS</li>
-            <li class="transition-colors">Less</li>
-            <li class="transition-colors">Sass</li>
-            <li class="transition-colors">Scss</li>
-            <li class="transition-colors">Tailwind</li>
-            <li class="transition-colors">Bootstrap</li>
-            <li class="transition-colors">Storybooks</li>
-            <li class="transition-colors">Figma</li>
-            <li class="transition-colors">Adobe XD</li>
-            <li class="transition-colors">Responsive design</li>
-            <li class="transition-colors">UX & UI design Tools</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3">
-          <header class="mb-4">Principles and Patterns</header>
-          <ul class="comma-list">
-            <li class="transition-colors">SOLID</li>
-            <li class="transition-colors">KISS</li>
-            <li class="transition-colors">DRY</li>
-            <li class="transition-colors">Direct Injection</li>
-            <li class="transition-colors">Observer</li>
-            <li class="transition-colors">Singleton</li>
-            <li class="transition-colors">Revealing Module</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3 pr-16">
-          <header class="mb-4">Tools</header>
-          <ul class="comma-list">
-            <li class="transition-colors">Visual Studio code</li>
-            <li class="transition-colors">Visual Studio</li>
-            <li class="transition-colors">Sublime</li>
-            <li class="transition-colors">Notepad++</li>
-            <li class="transition-colors">Beyond Compare</li>
-            <li class="transition-colors">Git</li>
-            <li class="transition-colors">SVN</li>
-            <li class="transition-colors">Git Kraken</li>
-            <li class="transition-colors">GitHub</li>
-            <li class="transition-colors">DevOps</li>
-            <li class="transition-colors">Jenkins</li>
-            <li class="transition-colors">Azure Pipelines</li>
-            <li class="transition-colors">Azure Artifacts</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3 pr-16">
-          <header class="mb-4">Design</header>
-          <ul class="comma-list">
-            <li class="transition-colors">HTML</li>
-            <li class="transition-colors">Markdown</li>
-            <li class="transition-colors">Emmet</li>
-            <li class="transition-colors">CSS</li>
-            <li class="transition-colors">Less</li>
-            <li class="transition-colors">Sass</li>
-            <li class="transition-colors">Scss</li>
-            <li class="transition-colors">Tailwind</li>
-            <li class="transition-colors">Bootstrap</li>
-            <li class="transition-colors">Storybooks</li>
-            <li class="transition-colors">Figma</li>
-            <li class="transition-colors">Adobe XD</li>
-            <li class="transition-colors">Responsive design</li>
-            <li class="transition-colors">UX & UI design</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3">
-          <header class="mb-4">Database and APIs</header>
-          <ul class="comma-list">
-            <li class="transition-colors">GraphQL</li>
-            <li class="transition-colors">Neo4J</li>
-            <li class="transition-colors">MongoDB</li>
-            <li class="transition-colors">Firebase</li>
-            <li class="transition-colors">T-SQL</li>
-            <li class="transition-colors">MySQL</li>
-            <li class="transition-colors">SQLite</li>
-            <li class="transition-colors">Postman</li>
-            <li class="transition-colors">SQL Server</li>
-            <li class="transition-colors">Json Server</li>
-          </ul>
-        </section>
-        <section class="mb-8 basis-1/3 pr-16">
-          <header class="mb-4">Testing</header>
-          <ul class="comma-list">
-            <li class="transition-colors">E2E client-side testing</li>
-            <li class="transition-colors">Unit testing using Protractor</li>
-            <li class="transition-colors">Support legacy browser technology and testing with Browser Stack</li>
-          </ul>
-        </section>
+        @for (category of skillsAndAbilities; track category[0]) {
+          <section class="mb-8 basis-1/3 pr-16">
+            <header class="mb-4">{{ category[0] }}</header>
+            <ul class="comma-list">
+              @for (skill of category[1]; track $index) {
+                <li class="transition-colors">
+                  <app-resume-word [value]="skill[1]">{{ skill[0] }}</app-resume-word>
+                </li>
+              }
+            </ul>
+          </section>
+        }
       </div>
     </section>
 
