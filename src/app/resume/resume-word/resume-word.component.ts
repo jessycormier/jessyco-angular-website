@@ -8,6 +8,10 @@ import { HighlightService } from '../word-highlight.service';
 export class ResumeWordComponent {
   @Input() value?: string;
 
+  @Input()
+  @HostBinding('class.underline')
+  underline: boolean = true;
+
   @HostBinding('class.highlight')
   highlight: boolean = false;
 

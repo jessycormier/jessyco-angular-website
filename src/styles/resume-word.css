@@ -1,8 +1,15 @@
 app-resume-word {
-  @apply inline-flex underline decoration-dashed underline-offset-4 transition-all hover:decoration-blue-400 hover:underline-offset-8;
-  @apply font-extralight hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-400;
+  @apply inline-flex transition-all;
+  @apply hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-400;
   @apply cursor-pointer select-none;
 }
+
+app-resume-word.underline {
+  @apply underline decoration-gray-950/25 decoration-2 underline-offset-2;
+  @apply hover:decoration-blue-400 hover:decoration-dashed hover:underline-offset-4;
+}
+
 app-resume-word.highlight {
-  @apply font-bold text-blue-600;
+  @apply font-extrabold;
+  @apply decoration-blue-400 decoration-dashed underline-offset-4
 }

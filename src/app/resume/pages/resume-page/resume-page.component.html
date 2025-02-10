@@ -1,4 +1,13 @@
 <app-back-to-home-button></app-back-to-home-button>
+
+<app-toast
+  class="fixed right-3 bottom-4 opacity-80 transition-opacity hover:opacity-100"
+  (onClose)="onCloseClick()"
+  [show]="highlightService.selectedWord() != undefined">
+  Highlighted Topic:
+  <em>{{ highlightService.selectedWord() }}</em>
+</app-toast>
+
 <article class="font-mono">
   <header class="mb-8 bg-black p-8 px-8 text-white md:px-32">
     <div class="m-auto flex max-w-7xl justify-between">
@@ -15,6 +24,23 @@
       </div>
     </div>
   </header>
+  
+  <div class="relative m-auto mb-4 max-w-7xl p-4 px-8 text-sm md:px-32 print:hidden" role="alert" #help>
+    <app-link class="absolute top-4 left-32 animate-pulse" (click)="message.classList.remove('hidden'); help.classList.add('hidden')">Show Help</app-link>
+  </div>
+
+  <div class="relative m-auto mb-4 max-w-7xl hidden bg-blue-50 p-4 px-8 text-sm md:px-32 dark:bg-gray-800 print:hidden" role="alert" #message>
+    <span class="font-medium">Hey!</span>
+    <p>Thanks for checking out my resume.</p>
+
+    By the way, Clicking on words like &gt;&gt;
+    <app-resume-word value="Angular">Angular</app-resume-word>
+    &lt;&lt; will let you see all references ( like
+    <app-resume-word value="Angular">angular</app-resume-word>
+    ) to that topic. It also shows what word is highlighted on the bottom of the screen.
+    <app-link class="absolute top-4 right-1.5 animate-pulse" (click)="message.classList.add('hidden'); help.classList.remove('hidden')">Close</app-link>
+  </div>
+
   <div class="m-auto max-w-7xl p-8 px-8 md:px-32">
     <section class="mb-8">
       <h2 class="mb-4 text-4xl">Summary</h2>
@@ -37,62 +63,56 @@
           <time class="text-xs text-gray-800 dark:text-gray-300">September 2022 to Present</time>
         </header>
         <ul>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Delivered customized front-end solutions for client projects, ensuring smooth adaption to evolving requirements and on-time delivery.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Led design adjustments to align with customer needs, balancing tight timelines and incomplete specifications effectively.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Mentored team members and management on front-end best practices, improving team efficiency and technical capabilities.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Built a B2B solution for Royal Canadian Mint using
-            <app-resume-word value=".Net MVC" />
+            <app-resume-word value=".Net">.Net MVC</app-resume-word>
             ,
-            <app-resume-word value="Bootstrap" />
+            <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             and
-            <app-resume-word value="Optimizely CMS" />
+            <app-resume-word value="Optimizely CMS">Optimizely CMS</app-resume-word>
             .
           </li>
-          <li class="transition-colors hover:!text-gray-600">
-            Documented front-end best practices, contributing to the organization's knowledge base to improve workflows.
-          </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">Documented front-end best practices, contributing to the organization's knowledge base to improve workflows.</li>
+          <li class="transition-colors">
             Developed effective methodologies for task breakdown and timeline accuracy, ensuring clear client communication and delivery.
           </li>
-          <li class="transition-colors hover:!text-gray-600">Responsible for delivering high-quality front-end solutions to our customer projects.</li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">Responsible for delivering high-quality front-end solutions to our customer projects.</li>
+          <li class="transition-colors">
             Managed design and adjustments for customer projects, ensuring timely delivery despite often having incomplete or evolving requirements.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Provided guidance and teaching opportunities to team members and management, enhancing the team's overall skill set and efficiency.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Developed a B2B solution for Royal Canadian Mints using
-            <app-resume-word value="Bootstrap" />
+            <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             ,
-            <app-resume-word value="Optimizely" />
+            <app-resume-word value="Optimizely">Optimizely</app-resume-word>
             ,
-            <app-resume-word value=".Net" />
+            <app-resume-word value=".Net">.Net</app-resume-word>
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Utilized a variety of technologies and tools, including
-            <app-resume-word value=".Net" />
+            <app-resume-word value=".Net">.Net</app-resume-word>
             ,
-            <app-resume-word value="Bootstrap" />
+            <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             , and
-            <app-resume-word value="Tailwind CSS" />
+            <app-resume-word value="Tailwind CSS">Tailwind CSS</app-resume-word>
             , in alignment with
-            <app-resume-word value="Optimizely CMS" />
+            <app-resume-word value="Optimizely CMS">Optimizely CMS</app-resume-word>
             product specifications.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
-            Contributed to the knowledge base for best practices in front-end development, improving processes and workflows.
-          </li>
-          <li class="transition-colors hover:!text-gray-600">
-            Played a key role in developing methodologies for breaking down work to deliver accurate timelines for clients.
-          </li>
+          <li class="transition-colors">Contributed to the knowledge base for best practices in front-end development, improving processes and workflows.</li>
+          <li class="transition-colors">Played a key role in developing methodologies for breaking down work to deliver accurate timelines for clients.</li>
         </ul>
       </section>
 
@@ -105,41 +125,41 @@
           <time datetime="2022-08">August 2022</time>
         </header>
         <ul>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Built and launched a customer relationship management system (CRM) and a student application platform that supports older browser technology (
-            <app-resume-word value="Internet Explorer 9" />
+            <app-resume-word value="Internet Explorer 9">Internet Explorer 9</app-resume-word>
             ).
           </li>
-          <li class="transition-colors hover:!text-gray-600">Created an API library to communicate between internal products and 3rd party products.</li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">Created an API library to communicate between internal products and 3rd party products.</li>
+          <li class="transition-colors">
             Developed stand-alone libraries and components that can be consumed by other developers via
-            <app-resume-word value="NPM" />
+            <app-resume-word value="NPM">NPM</app-resume-word>
             /
-            <app-resume-word value="NuGet" />
+            <app-resume-word value="NuGet">NuGet</app-resume-word>
             using the
-            <app-resume-word value="Azure DevOps Artifacts" />
+            <app-resume-word value="Azure DevOps Artifacts">Azure DevOps Artifacts</app-resume-word>
             platform.
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Developed design system components using
-            <app-resume-word value="Bootstrap" />
+            <app-resume-word value="Bootstrap">Bootstrap</app-resume-word>
             ,
-            <app-resume-word value="Tailwind CSS" />
+            <app-resume-word value="Tailwind CSS">Tailwind CSS</app-resume-word>
             , and
-            <app-resume-word value="Storybooks" />
+            <app-resume-word value="Storybooks">Storybooks</app-resume-word>
             .
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Delivered low-fidelity designs using
-            <app-resume-word value="Figma" />
+            <app-resume-word value="Figma">Figma</app-resume-word>
             , and
-            <app-resume-word value="Adobe XD" />
+            <app-resume-word value="Adobe XD">Adobe XD</app-resume-word>
             .
           </li>
-          <li class="transition-colors hover:!text-gray-600">Responsible for managing project dependency, upgrades, and releases.</li>
-          <li class="transition-colors hover:!text-gray-600">Developed processes for our DevOps team for automation and deployments.</li>
-          <li class="transition-colors hover:!text-gray-600">Facilitated team collaboration, hosting scrum meetings, and mentoring developers.</li>
-          <li class="transition-colors hover:!text-gray-600">Onboarded new hires about our processes and technology.</li>
+          <li class="transition-colors">Responsible for managing project dependency, upgrades, and releases.</li>
+          <li class="transition-colors">Developed processes for our DevOps team for automation and deployments.</li>
+          <li class="transition-colors">Facilitated team collaboration, hosting scrum meetings, and mentoring developers.</li>
+          <li class="transition-colors">Onboarded new hires about our processes and technology.</li>
         </ul>
       </section>
 
@@ -152,22 +172,22 @@
           <time datetime="2017-04">April 2017</time>
         </header>
         <ul>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Create and maintain our products in
-            <app-resume-word value="ASP .Net" />
+            <app-resume-word value=".Net">ASP .Net</app-resume-word>
             MVC / WebForms in both
-            <app-resume-word value="C#" />
+            <app-resume-word value="C#">C#</app-resume-word>
             and
-            <app-resume-word value="VB" />
+            <app-resume-word value="VB">VB (Visual Basics)</app-resume-word>
             .
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Front-end development including building front-end design framework(s) for other developers and products, design UI and UX.
           </li>
-          <li class="transition-colors hover:!text-gray-600">Project research and planning.</li>
-          <li class="transition-colors hover:!text-gray-600">Database development and planning.</li>
-          <li class="transition-colors hover:!text-gray-600">Managing communication tools and provide education for the team.</li>
-          <li class="transition-colors hover:!text-gray-600">Working with customer service team to resolve products/client issues.</li>
+          <li class="transition-colors">Project research and planning.</li>
+          <li class="transition-colors">Database development and planning.</li>
+          <li class="transition-colors">Managing communication tools and provide education for the team.</li>
+          <li class="transition-colors">Working with customer service team to resolve products/client issues.</li>
         </ul>
       </section>
 
@@ -180,17 +200,17 @@
           <time datetime="2014-04">April 2014</time>
         </header>
         <ul>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Creating and Reviewing course curriculum for students in
-            <app-resume-word value="PHP" />
+            <app-resume-word value="PHP">PHP</app-resume-word>
             &
-            <app-resume-word value="MySQL" />
+            <app-resume-word value="MySQL">MySQL</app-resume-word>
             .
           </li>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Deliver course curriculum through Blackboard Learning Management System (LMS) and help them catch up on any missing lessons from other courses.
           </li>
-          <li class="transition-colors hover:!text-gray-600">Creating websites for clients, providing technical support and education.</li>
+          <li class="transition-colors">Creating websites for clients, providing technical support and education.</li>
         </ul>
       </section>
 
@@ -203,20 +223,20 @@
           <time datetime="2010-12">December 2010</time>
         </header>
         <ul>
-          <li class="transition-colors hover:!text-gray-600">
+          <li class="transition-colors">
             Development on sites such as Kazaa (Python), corporate site, ez-tracks (
-            <app-resume-word value="Cold Fusion" />
+            <app-resume-word value="Cold Fusion">Cold Fusion</app-resume-word>
             ), ShopIt (
-            <app-resume-word value="PHP" />
+            <app-resume-word value="PHP">PHP</app-resume-word>
             ), Select Machinery INC (
-            <app-resume-word value="ASP .Net" />
+            <app-resume-word value=".Net">ASP .Net</app-resume-word>
             ), BlueworldPools (
-            <app-resume-word value="ASP .Net" />
+            <app-resume-word value=".Net">ASP .Net</app-resume-word>
             ).
           </li>
-          <li class="transition-colors hover:!text-gray-600">Team meetings to create site wireframe, database design.</li>
-          <li class="transition-colors hover:!text-gray-600">Development of sites, troubleshooting existing, enhancements and refactoring.</li>
-          <li class="transition-colors hover:!text-gray-600">Integrating into social media platforms and using 3rd party APIs.</li>
+          <li class="transition-colors">Team meetings to create site wireframe, database design.</li>
+          <li class="transition-colors">Development of sites, troubleshooting existing, enhancements and refactoring.</li>
+          <li class="transition-colors">Integrating into social media platforms and using 3rd party APIs.</li>
         </ul>
       </section>
     </section>
@@ -230,115 +250,115 @@
         <section class="mb-8 basis-1/3 pr-16">
           <header class="mb-4">Frameworks and Technologies</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">Angular (v4+)</li>
-            <li class="transition-colors hover:!text-gray-600">React</li>
-            <li class="transition-colors hover:!text-gray-600">NextJS</li>
-            <li class="transition-colors hover:!text-gray-600">SveltKit</li>
-            <li class="transition-colors hover:!text-gray-600">Astro</li>
-            <li class="transition-colors hover:!text-gray-600">Vue</li>
-            <li class="transition-colors hover:!text-gray-600">TypeScript</li>
-            <li class="transition-colors hover:!text-gray-600">JavaScript</li>
-            <li class="transition-colors hover:!text-gray-600">jQuery</li>
-            <li class="transition-colors hover:!text-gray-600">Node</li>
-            <li class="transition-colors hover:!text-gray-600">Deno</li>
-            <li class="transition-colors hover:!text-gray-600">Electron</li>
-            <li class="transition-colors hover:!text-gray-600">npm</li>
-            <li class="transition-colors hover:!text-gray-600">yarn</li>
-            <li class="transition-colors hover:!text-gray-600">pnpm</li>
-            <li class="transition-colors hover:!text-gray-600">webpack</li>
-            <li class="transition-colors hover:!text-gray-600">gulp</li>
-            <li class="transition-colors hover:!text-gray-600">grunt</li>
+            <li class="transition-colors">Angular (v4+)</li>
+            <li class="transition-colors">React</li>
+            <li class="transition-colors">NextJS</li>
+            <li class="transition-colors">SvelteKit</li>
+            <li class="transition-colors">Astro</li>
+            <li class="transition-colors">Vue</li>
+            <li class="transition-colors">TypeScript</li>
+            <li class="transition-colors">JavaScript</li>
+            <li class="transition-colors">jQuery</li>
+            <li class="transition-colors">Node</li>
+            <li class="transition-colors">Deno</li>
+            <li class="transition-colors">Electron</li>
+            <li class="transition-colors">npm</li>
+            <li class="transition-colors">yarn</li>
+            <li class="transition-colors">pnpm</li>
+            <li class="transition-colors">webpack</li>
+            <li class="transition-colors">gulp</li>
+            <li class="transition-colors">grunt</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3 pr-16">
           <header class="mb-4">Design and Development</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">HTML</li>
-            <li class="transition-colors hover:!text-gray-600">Markdown</li>
-            <li class="transition-colors hover:!text-gray-600">Emmet</li>
-            <li class="transition-colors hover:!text-gray-600">CSS</li>
-            <li class="transition-colors hover:!text-gray-600">Less</li>
-            <li class="transition-colors hover:!text-gray-600">Sass</li>
-            <li class="transition-colors hover:!text-gray-600">Scss</li>
-            <li class="transition-colors hover:!text-gray-600">Tailwind</li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Bootstrap" /></li>
-            <li class="transition-colors hover:!text-gray-600">Storybooks</li>
-            <li class="transition-colors hover:!text-gray-600">Figma</li>
-            <li class="transition-colors hover:!text-gray-600">Adobe XD</li>
-            <li class="transition-colors hover:!text-gray-600">Responsive design</li>
-            <li class="transition-colors hover:!text-gray-600">UX & UI design Tools</li>
+            <li class="transition-colors">HTML</li>
+            <li class="transition-colors">Markdown</li>
+            <li class="transition-colors">Emmet</li>
+            <li class="transition-colors">CSS</li>
+            <li class="transition-colors">Less</li>
+            <li class="transition-colors">Sass</li>
+            <li class="transition-colors">Scss</li>
+            <li class="transition-colors">Tailwind</li>
+            <li class="transition-colors">Bootstrap</li>
+            <li class="transition-colors">Storybooks</li>
+            <li class="transition-colors">Figma</li>
+            <li class="transition-colors">Adobe XD</li>
+            <li class="transition-colors">Responsive design</li>
+            <li class="transition-colors">UX & UI design Tools</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3">
           <header class="mb-4">Principles and Patterns</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">SOLID</li>
-            <li class="transition-colors hover:!text-gray-600">KISS</li>
-            <li class="transition-colors hover:!text-gray-600">DRY</li>
-            <li class="transition-colors hover:!text-gray-600">Direct Injection</li>
-            <li class="transition-colors hover:!text-gray-600">Observer</li>
-            <li class="transition-colors hover:!text-gray-600">Singleton</li>
-            <li class="transition-colors hover:!text-gray-600">Revealing Module</li>
+            <li class="transition-colors">SOLID</li>
+            <li class="transition-colors">KISS</li>
+            <li class="transition-colors">DRY</li>
+            <li class="transition-colors">Direct Injection</li>
+            <li class="transition-colors">Observer</li>
+            <li class="transition-colors">Singleton</li>
+            <li class="transition-colors">Revealing Module</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3 pr-16">
           <header class="mb-4">Tools</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">Visual Studio code</li>
-            <li class="transition-colors hover:!text-gray-600">Visual Studio</li>
-            <li class="transition-colors hover:!text-gray-600">Sublime</li>
-            <li class="transition-colors hover:!text-gray-600">Notepad++</li>
-            <li class="transition-colors hover:!text-gray-600">Beyond Compare</li>
-            <li class="transition-colors hover:!text-gray-600">Git</li>
-            <li class="transition-colors hover:!text-gray-600">SVN</li>
-            <li class="transition-colors hover:!text-gray-600">Git Kraken</li>
-            <li class="transition-colors hover:!text-gray-600">GitHub</li>
-            <li class="transition-colors hover:!text-gray-600">DevOps</li>
-            <li class="transition-colors hover:!text-gray-600">Jenkins</li>
-            <li class="transition-colors hover:!text-gray-600">Azure Pipelines</li>
-            <li class="transition-colors hover:!text-gray-600">Azure Artifacts</li>
+            <li class="transition-colors">Visual Studio code</li>
+            <li class="transition-colors">Visual Studio</li>
+            <li class="transition-colors">Sublime</li>
+            <li class="transition-colors">Notepad++</li>
+            <li class="transition-colors">Beyond Compare</li>
+            <li class="transition-colors">Git</li>
+            <li class="transition-colors">SVN</li>
+            <li class="transition-colors">Git Kraken</li>
+            <li class="transition-colors">GitHub</li>
+            <li class="transition-colors">DevOps</li>
+            <li class="transition-colors">Jenkins</li>
+            <li class="transition-colors">Azure Pipelines</li>
+            <li class="transition-colors">Azure Artifacts</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3 pr-16">
           <header class="mb-4">Design</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Html" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Markdown" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Emmet" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="CSS" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Less" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Sass" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Scss" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Tailwind" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Bootstrap" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Storybooks" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Figma" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Adobe XD" /></li>
-            <li class="transition-colors hover:!text-gray-600"><app-resume-word value="Responsive design" /></li>
-            <li class="transition-colors hover:!text-gray-600">UX & UI design</li>
+            <li class="transition-colors">HTML</li>
+            <li class="transition-colors">Markdown</li>
+            <li class="transition-colors">Emmet</li>
+            <li class="transition-colors">CSS</li>
+            <li class="transition-colors">Less</li>
+            <li class="transition-colors">Sass</li>
+            <li class="transition-colors">Scss</li>
+            <li class="transition-colors">Tailwind</li>
+            <li class="transition-colors">Bootstrap</li>
+            <li class="transition-colors">Storybooks</li>
+            <li class="transition-colors">Figma</li>
+            <li class="transition-colors">Adobe XD</li>
+            <li class="transition-colors">Responsive design</li>
+            <li class="transition-colors">UX & UI design</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3">
           <header class="mb-4">Database and APIs</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">GraphQL</li>
-            <li class="transition-colors hover:!text-gray-600">Neo4J</li>
-            <li class="transition-colors hover:!text-gray-600">MongoDB</li>
-            <li class="transition-colors hover:!text-gray-600">Firebase</li>
-            <li class="transition-colors hover:!text-gray-600">T-SQL</li>
-            <li class="transition-colors hover:!text-gray-600">MySQL</li>
-            <li class="transition-colors hover:!text-gray-600">SQLite</li>
-            <li class="transition-colors hover:!text-gray-600">Postman</li>
-            <li class="transition-colors hover:!text-gray-600">SQL Server</li>
-            <li class="transition-colors hover:!text-gray-600">Json Server</li>
+            <li class="transition-colors">GraphQL</li>
+            <li class="transition-colors">Neo4J</li>
+            <li class="transition-colors">MongoDB</li>
+            <li class="transition-colors">Firebase</li>
+            <li class="transition-colors">T-SQL</li>
+            <li class="transition-colors">MySQL</li>
+            <li class="transition-colors">SQLite</li>
+            <li class="transition-colors">Postman</li>
+            <li class="transition-colors">SQL Server</li>
+            <li class="transition-colors">Json Server</li>
           </ul>
         </section>
         <section class="mb-8 basis-1/3 pr-16">
           <header class="mb-4">Testing</header>
           <ul class="comma-list">
-            <li class="transition-colors hover:!text-gray-600">E2E client-side testing</li>
-            <li class="transition-colors hover:!text-gray-600">Unit testing using Protractor</li>
-            <li class="transition-colors hover:!text-gray-600">Support legacy browser technology and testing with Browser Stack</li>
+            <li class="transition-colors">E2E client-side testing</li>
+            <li class="transition-colors">Unit testing using Protractor</li>
+            <li class="transition-colors">Support legacy browser technology and testing with Browser Stack</li>
           </ul>
         </section>
       </div>
@@ -349,11 +369,11 @@
         <h2 class="mb-4 text-4xl">Education</h2>
       </header>
       <ul>
-        <li class="transition-colors hover:!text-gray-600">Internet Application Developer Diploma From NBCC</li>
-        <li class="transition-colors hover:!text-gray-600">NBCC - Dean's List (2008 Computer Programmer Jr, 2009 Computer Programmer Sr)</li>
-        <li class="transition-colors hover:!text-gray-600">Meta Front-End Developer - Coursera by Meta (Facebook)</li>
-        <li class="transition-colors hover:!text-gray-600">Foundations of User Experience (UX) Design - Coursera by Google</li>
-        <li class="transition-colors hover:!text-gray-600">Introduction to Project Management (PM101) - Missing Link Technologies Ltd.</li>
+        <li class="transition-colors">Internet Application Developer Diploma From NBCC</li>
+        <li class="transition-colors">NBCC - Dean's List (2008 Computer Programmer Jr, 2009 Computer Programmer Sr)</li>
+        <li class="transition-colors">Meta Front-End Developer - Coursera by Meta (Facebook)</li>
+        <li class="transition-colors">Foundations of User Experience (UX) Design - Coursera by Google</li>
+        <li class="transition-colors">Introduction to Project Management (PM101) - Missing Link Technologies Ltd.</li>
       </ul>
     </section>
   </div>
