@@ -1,0 +1,30 @@
+import { Component, effect, HostBinding, HostListener, Input } from '@angular/core';
+import { HighlightService } from '../word-highlight.service';
+
+@Component({
+  selector: 'app-resume-word',
+  templateUrl: './resume-word.component.html',
+})
+export class ResumeWordComponent {
+  @Input() value?: string;
+
+  @Input()
+  @HostBinding('class.underline')
+  underline: boolean = true;
+
+  @HostBinding('class.highlight')
+  highlight: boolean = false;
+
+  @HostListener('mouseup', ['$event'])
+  onMouseUp(e: Event) {
+    e.preventDefault();
+    console.log(this.value);
+    this.highlightService.selectedWord.set(this.highlightService.selectedWord() === this.value ? undefined : this.value);
+  }
+
+  constructor(private highlightService: HighlightService) {
+    effect(() => {
+      this.highlight = this.highlightService.selectedWord() === this.value;
+    });
+  }
+}

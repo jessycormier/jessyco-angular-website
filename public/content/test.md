@@ -66,6 +66,15 @@ let message = 'Hello world';
 alert(message);
 ```
 
+```js
+let message = 'Hello world';
+alert(message);
+```
+
+```html
+<html> hello </html>
+```
+
 ## Inline code
 
 This web site is using `markedjs/marked`.
