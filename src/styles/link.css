@@ -18,21 +18,23 @@ app-link a:hover {
 
 app-link a::before {
   content: "[";
-  @apply pr-1 pl-1 font-semibold transition-all;
 }
-app-link a:hover::before {
-  @apply animate-[var(--animate-text-blink)] pr-2 pl-0;
-  content: "[";
-}
-
 app-link a::after {
   content: "]";
+}
+
+app-link a:hover::before {
+  @apply animate-[var(--animate-text-blink)] pr-2 pl-0;
+}
+
+app-link a::before,
+app-link a::after {
   @apply pr-1 pl-1 font-semibold transition-all;
 }
+
 app-link a:hover::after {
   @apply animate-[var(--animate-text-blink)] pr-0 pl-2;
 }
-
 
 /* Active Link Indicator */
 app-link a span {
