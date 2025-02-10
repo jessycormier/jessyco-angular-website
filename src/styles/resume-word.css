@@ -1,7 +1,7 @@
 app-resume-word {
   @apply inline-flex transition-all;
   @apply hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-400;
-  @apply cursor-pointer select-none;
+  @apply cursor-pointer; /* select-none */
 }
 
 app-resume-word.underline {
@@ -11,5 +11,5 @@ app-resume-word.underline {
 
 app-resume-word.highlight {
   @apply font-extrabold;
-  @apply decoration-blue-400 decoration-dashed underline-offset-4
+  @apply decoration-blue-400 decoration-dashed underline-offset-4;
 }
