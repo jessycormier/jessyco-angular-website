@@ -7,7 +7,7 @@ app-link {
 }
 
 app-link a, app-link span.btn-link {
-  @apply pointer-events-auto relative mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all;
+  @apply pointer-events-auto relative mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all text-nowrap;
   @apply dark:text-stone-200;
 }
 
