@@ -1,14 +1,18 @@
 @if (!isHomePage) {
   <app-back-to-home-button></app-back-to-home-button>
 }
+
 <div class="p-1 md:p-16">
-  <div class="container max-w-7xl border-2 dark:border-stone-800 bg-white dark:bg-black/50">
+  <div class="container mb-4 max-w-7xl">
     <app-header></app-header>
-    <main class="min-h-96" tabindex="-1" style="outline: transparent">
-      <div class="px-5 py-6">
+  </div>
+  <div class="container flex max-w-7xl gap-8">
+    <app-sidebar></app-sidebar>
+    <div class="flex-1">
+      <main class="min-h-96" tabindex="-1" style="outline: transparent">
         <router-outlet />
-      </div>
-    </main>
-    <app-footer></app-footer>
+      </main>
+      <app-footer></app-footer>
+    </div>
   </div>
 </div>

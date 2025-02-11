@@ -46,11 +46,10 @@
   html {
     @apply min-h-full h-full;
     @apply antialiased;
-    @apply bg-stone-100 dark:bg-stone-950 dark:text-white;
   }
 
   body {
-    @apply min-h-full bg-linear-to-r/decreasing from-indigo-500/10 to-teal-400/10;
+    @apply min-h-full h-full;
   }
 
   ::selection {

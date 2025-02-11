@@ -12,6 +12,7 @@ import { LogoComponent } from '../logo/logo.component';
   styles: [],
 })
 export class BrandComponent {
+  @Input() useNewBrand = true;
   @Input() cssClasses = '';
   @Input() textCssClasses = '';
   @Input() showLogo = true;

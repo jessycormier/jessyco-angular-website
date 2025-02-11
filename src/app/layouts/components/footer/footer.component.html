@@ -1,31 +1,13 @@
-<footer class="border-t-2 dark:border-stone-800">
-  <div class="grid grid-cols-2 divide-x-2 dark:divide-stone-800">
-    <div class="px-5 py-6">
-      <div class="mb-5">
-        <strong>Site Footer Links</strong>
-        <em class="ml-4 text-xs opacity-25">One day, there might be useful links here.</em>
-      </div>
-      <div class="flex flex-col">
-        @for (link of siteLinks; track link.routerLink) {
-          <app-link [routerLink]="link.routerLink">{{ link.text }}</app-link>
-        }
-      </div>
-    </div>
-    <div class="px-5 py-6">
-      <div class="mb-5">
-        <strong>Socials</strong>
-      </div>
-      <div class="flex flex-col">
-        @for (link of socialLinks; track link.href) {
-          <app-link [href]="link.href">{{ link.text }}</app-link>
-        }
-      </div>
-    </div>
+<footer class="flex flex-col items-center justify-between">
+  <strong>Socials</strong>
+  <div class="mr-4 flex flex-row gap-4">
+    @for (link of socialLinks; track link.href) {
+      <app-link [href]="link.href">{{ link.text }}</app-link>
+    }
+  </div>
+  <div class="flex flex-row gap-1 text-sm">
+    <span class="mr-1">&copy; 2025</span>
+    <app-brand />
+    . All rights reserved.
   </div>
 </footer>
-
-<div class="flex flex-row gap-1 border-t-2 px-5 py-6 text-sm dark:border-stone-800">
-  &copy; 2025
-  <app-brand [showLogo]="false" />
-  . All rights reserved.
-</div>
