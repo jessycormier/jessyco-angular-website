@@ -1,12 +1,9 @@
-<header class="border-b-2 dark:border-stone-800">
-  <div class="flex items-center justify-between">
-    <div class="px-5">
-      <app-brand textCssClasses="text-2xl" />
-    </div>
-    <div class="flex flex-col justify-start border-l-2 px-5 py-6 dark:border-stone-800">
-      <app-link routerLink="/">Home</app-link>
-      <app-link routerLink="/notes">Notes</app-link>
-      <app-link routerLink="/resume">Resume</app-link>
-    </div>
-  </div>
+<header class="flex flex-row items-center justify-between gap-4">
+  <!-- border-b-3 border-black -->
+  <app-brand textCssClasses="text-2xl" />
+  <nav class="flex flex-row items-center justify-start gap-4 md:hidden">
+    <app-link routerLink="/">Home</app-link>
+    <app-link routerLink="/notes">Notes</app-link>
+    <app-link routerLink="/resume">Resume</app-link>
+  </nav>
 </header>

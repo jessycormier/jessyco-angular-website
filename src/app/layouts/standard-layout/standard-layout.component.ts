@@ -4,10 +4,11 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { BackToHomeButtonComponent } from '../../components/back-to-home-button/back-to-home-button.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { HeaderComponent } from '../components/header/header.component';
+import { SidebarComponent } from '../components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-standard-layout',
-  imports: [RouterOutlet, FooterComponent, BackToHomeButtonComponent, CommonModule, HeaderComponent],
+  imports: [RouterOutlet, FooterComponent, BackToHomeButtonComponent, CommonModule, HeaderComponent, SidebarComponent],
   templateUrl: './standard-layout.component.html',
 })
 export class StandardLayoutComponent {

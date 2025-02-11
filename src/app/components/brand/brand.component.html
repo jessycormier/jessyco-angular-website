@@ -1,13 +1,17 @@
 <a routerLink="/" class="{{ cssClasses }} group font-mono text-center flex items-center align-middle" title="Link to home">
   @if (showLogo) {
-    <span class="mr-2">
-      <app-logo
-        svgClasses="fill-black w-10 h-10 transition-all dark:text-white dark:fill-white"
-        [lbClasses]="bracketColorCss"
-        [rbClasses]="bracketColorCss"
-        [jClasses]="letterColorCss"
-        [cClasses]="letterColorCss" />
-    </span>
+    @if (useNewBrand) {
+      <div class="bg-black px-1 mr-2 font-mono text-white {{textCssClasses}}">JC</div>
+    } @else {
+      <span class="mr-2">
+        <app-logo
+          svgClasses="fill-black w-10 h-10 transition-all dark:text-white dark:fill-white"
+          [lbClasses]="bracketColorCss"
+          [rbClasses]="bracketColorCss"
+          [jClasses]="letterColorCss"
+          [cClasses]="letterColorCss" />
+      </span>
+    }
   }
   <div>
     <app-jessy-cormier [cssClasses]="textCssClasses" />
