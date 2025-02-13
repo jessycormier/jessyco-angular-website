@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { BackToHomeButtonComponent } from '../../../components/back-to-home-button/back-to-home-button.component';
+import { HeaderComponent } from '../../../components/header/header.component';
 import { ToastComponent } from '../../../components/toast/toast.component';
-import { ResumeDateRangeComponent } from "../../resume-date-range/resume-date-range.component";
-import { ResumeHelpSectionComponent } from "../../resume-help-section/resume-help-section.component";
+import { ResumeDateRangeComponent } from '../../resume-date-range/resume-date-range.component';
+import { ResumeHelpSectionComponent } from '../../resume-help-section/resume-help-section.component';
 import { ResumeWordComponent } from '../../resume-word/resume-word.component';
 import { HighlightService } from './../../word-highlight.service';
+import { FooterComponent } from "../../../components/footer/footer.component";
 
 type HighlightWord = string;
 type DisplayWord = string;
@@ -13,7 +14,7 @@ type CategoryName = string;
 
 @Component({
   selector: 'app-resume-page',
-  imports: [ResumeWordComponent, BackToHomeButtonComponent, ToastComponent, ResumeDateRangeComponent, ResumeHelpSectionComponent],
+  imports: [ResumeWordComponent, ToastComponent, ResumeDateRangeComponent, ResumeHelpSectionComponent, HeaderComponent, FooterComponent],
   templateUrl: './resume-page.component.html',
 })
 export class ResumePageComponent {

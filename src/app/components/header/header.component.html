@@ -1,0 +1,12 @@
+<header class="flex flex-row flex-wrap items-center justify-between py-8">
+  <div class="flex flex-row items-center justify-start gap-2">
+    <app-brand />
+    <div class="line-clamp-1 text-2xl opacity-40 mb-1">
+      @for (item of layout.breadcrumb; track $index) {
+        / {{ item }}
+      }
+    </div>
+  </div>
+
+  <app-link (click)="layout.openMenu()">Menu</app-link>
+</header>

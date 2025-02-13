@@ -44,12 +44,12 @@
 
 @layer base {
   html {
-    @apply min-h-full h-full;
+    @apply h-full min-h-full;
     @apply antialiased;
   }
 
   body {
-    @apply min-h-full h-full;
+    @apply h-full min-h-full;
   }
 
   ::selection {
@@ -73,6 +73,11 @@
   ol li {
     list-style-type: decimal;
   }
+}
+
+@utility stripped {
+  background-color: #013A6B;
+  background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%);
 }
 
 @utility container {
@@ -102,7 +107,7 @@
 } */
 
 @layer components {
-  /* Link Component */
+  /* Link Component - Used on resume page */
   .link {
     @apply p-0 text-white transition-all hover:bg-white hover:px-2 hover:text-black;
   }

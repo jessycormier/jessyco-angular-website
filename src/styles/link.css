@@ -1,29 +1,33 @@
 app-link {
   /* For accessability */
-  display: inline-block;
-  min-width: 24px;
-  min-height: 24px;
   pointer-events: none;
+  /* @apply border; */
 }
 
-app-link a, app-link span.btn-link {
-  @apply pointer-events-auto relative mx-0.5 -mr-2.5 inline-block -translate-x-1.5 transform cursor-pointer pb-1 text-stone-700 !no-underline transition-all text-nowrap;
+app-link a,
+app-link span.btn-link {
+  @apply pointer-events-auto relative mx-0.5 inline-block transform cursor-pointer text-nowrap text-stone-700 !no-underline transition-all;
   @apply dark:text-stone-200;
 }
 
-app-link a:hover, app-link span.btn-link:hover {
-  @apply bg-gray-200;
+app-link a:hover,
+app-link span.btn-link:hover {
   @apply dark:text-black;
 }
 
-app-link a::before, app-link span.btn-link::before {
+app-link a::before,
+app-link span.btn-link::before {
   content: "[";
+  @apply relative -top-0.25;
 }
-app-link a::after, app-link span.btn-link::after {
+app-link a::after,
+app-link span.btn-link::after {
   content: "]";
+  @apply relative -top-0.25;
 }
 
-app-link a:hover::before, app-link span.btn-link:hover::before {
+app-link a:hover::before,
+app-link span.btn-link:hover::before {
   @apply animate-[var(--animate-text-blink)] pr-2 pl-0;
 }
 
@@ -34,7 +38,8 @@ app-link span.btn-link::after {
   @apply pr-1 pl-1 font-semibold transition-all;
 }
 
-app-link a:hover::after, app-link span.btn-link:hover::after {
+app-link a:hover::after,
+app-link span.btn-link:hover::after {
   @apply animate-[var(--animate-text-blink)] pr-0 pl-2;
 }
 
