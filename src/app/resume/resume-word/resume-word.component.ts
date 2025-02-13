@@ -18,7 +18,6 @@ export class ResumeWordComponent {
   @HostListener('mouseup', ['$event'])
   onMouseUp(e: Event) {
     e.preventDefault();
-    console.log(this.value);
     this.highlightService.selectedWord.set(this.highlightService.selectedWord() === this.value ? undefined : this.value);
   }
 

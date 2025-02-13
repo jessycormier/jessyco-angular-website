@@ -1,19 +1,19 @@
-<a routerLink="/" class="{{ cssClasses }} group font-mono text-center flex items-center align-middle" title="Link to home">
-  @if (showLogo) {
-    @if (useNewBrand) {
-      <div class="bg-black px-1 mr-2 font-mono text-white {{textCssClasses}}">JC</div>
-    } @else {
-      <span class="mr-2">
-        <app-logo
-          svgClasses="fill-black w-10 h-10 transition-all dark:text-white dark:fill-white"
-          [lbClasses]="bracketColorCss"
-          [rbClasses]="bracketColorCss"
-          [jClasses]="letterColorCss"
-          [cClasses]="letterColorCss" />
-      </span>
-    }
+<a routerLink="/" class="flex items-center text-center align-middle font-mono">
+  @if (size === "") {
+    <div class="mr-4 flex h-12 w-12 items-center justify-center bg-black px-1 text-3xl text-white">JC</div>
+
+    <span class="flex flex-row text-2xl text-black dark:text-white">
+      <span class="opacity-70">jessy</span>
+      <span class="opacity-40">.</span>
+      <span class="opacity-70">co</span>
+    </span>
+  } @else if (size === "sm") {
+    <div class="mr-2 flex h-6 w-6 items-center justify-center bg-black px-1 text-white">JC</div>
+
+    <span class="group flex flex-row text-sm text-black dark:text-white">
+      <span class="opacity-70">jessy</span>
+      <span class="opacity-40">.</span>
+      <span class="opacity-70">co</span>
+    </span>
   }
-  <div>
-    <app-jessy-cormier [cssClasses]="textCssClasses" />
-  </div>
 </a>

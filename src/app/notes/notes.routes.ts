@@ -1,27 +1,39 @@
 import { Routes } from '@angular/router';
-import { NoteListPageComponent } from './pages/note-list-page/note-list-page.component';
-import { NotePageComponent } from './pages/note-page/note-page.component';
-import { noteListResolver } from './resolvers/note-list.resolver';
-import { noteDetailsResolver } from './resolvers/note-details.resolver';
 import { StandardLayoutComponent } from '../layouts/standard-layout/standard-layout.component';
+import { notesResolver } from './notes.resolver';
+import { NoteHomePageComponent } from './pages/note-home-page/note-home-page.component';
+import { NotePageComponent } from './pages/note-page/note-page.component';
+import { NoteRouteType } from './note-route-type.enum';
 
 export const notesRoutes: Routes = [
-    // Standard Layout
-    {
-      path: '',
-      component: StandardLayoutComponent,
-      children: [
-        {
-          path: '',
-          component: NoteListPageComponent,
-          resolve: { data: noteListResolver },
-        },
-        {
-          path: ':id',
-          component: NotePageComponent,
-          resolve: { data: noteDetailsResolver },
-        },
-      ],
-    },
-
+  {
+    path: '',
+    component: StandardLayoutComponent,
+    children: [
+      {
+        path: ':category/:id',
+        component: NotePageComponent,
+        resolve: { data: notesResolver },
+        data: { type: NoteRouteType.notePage },
+      },
+      {
+        path: ':category',
+        component: NotePageComponent,
+        resolve: { data: notesResolver },
+        data: { type: NoteRouteType.categoryPage },
+      },
+      {
+        path: ':id',
+        component: NotePageComponent,
+        resolve: { data: notesResolver },
+        data: { type: NoteRouteType.notePage },
+      },
+      {
+        path: '',
+        component: NoteHomePageComponent,
+        resolve: { data: notesResolver },
+        data: { type: NoteRouteType.homePage },
+      },
+    ],
+  },
 ];

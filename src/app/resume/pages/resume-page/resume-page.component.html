@@ -1,7 +1,9 @@
-<app-back-to-home-button></app-back-to-home-button>
-
+<!-- <app-back-to-home-button></app-back-to-home-button> -->
+<div class="container max-w-5xl print:hidden">
+  <app-header></app-header>
+</div>
 <app-toast
-  class="fixed right-3 bottom-4 opacity-80 transition-opacity hover:opacity-100"
+  class="fixed right-3 bottom-4 opacity-80 transition-opacity hover:opacity-100 print:hidden"
   (onClose)="onCloseClick()"
   [show]="highlightService.selectedWord() != undefined">
   Highlighted Topic:
@@ -10,7 +12,7 @@
 
 <article class="font-mono">
   <header class="mb-8 bg-black p-8 px-8 text-white md:px-32">
-    <div class="m-auto flex max-w-7xl justify-between">
+    <div class="m-auto flex max-w-5xl justify-between">
       <div>
         <h1 class="text-5xl font-thin">Jessy Cormier</h1>
         <em class="text-gray\50 font-thin">Senior Front-End Developer</em>
@@ -25,9 +27,13 @@
     </div>
   </header>
 
+
+
   <app-resume-help-section></app-resume-help-section>
 
-  <div class="m-auto max-w-7xl p-8 px-8 md:px-32">
+
+
+  <div class="m-auto max-w-5xl">
     <section class="mb-8">
       <h2 class="mb-4 text-4xl">Summary</h2>
       <p class="pb-0">
@@ -263,3 +269,6 @@
     </section>
   </div>
 </article>
+<div class="container max-w-5xl mt-32 print:hidden">
+  <app-footer></app-footer>
+</div>
