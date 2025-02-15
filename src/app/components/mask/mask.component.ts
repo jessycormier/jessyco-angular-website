@@ -7,7 +7,6 @@ import { LayoutService } from '@jc/services/layout.service';
   templateUrl: './mask.component.html',
 })
 export class MaskComponent {
-
   isShown = '';
 
   constructor(private layout: LayoutService) {
@@ -17,7 +16,6 @@ export class MaskComponent {
   }
 
   onClick() {
-    console.log('lkjsdflkjsdlfkjsdflkjsdf')
     this.layout.closeMenu();
   }
 }

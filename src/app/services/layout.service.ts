@@ -13,7 +13,6 @@ export class LayoutService {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log(event.url);
         this.breadcrumb = event.url.split('/').filter((s) => s.length > 0);
         if (event.url === '/') {
           this.breadcrumb = ['home'];
@@ -29,15 +28,12 @@ export class LayoutService {
   }
 
   openMenu() {
-    console.log('Open Menu');
     this.mask.set(true);
     this.menu.set(true);
   }
 
   closeMenu() {
-    console.log('Close Menu');
     this.mask.set(false);
     this.menu.set(false);
   }
-
 }

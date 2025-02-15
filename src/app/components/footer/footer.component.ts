@@ -11,7 +11,7 @@ import { LinkComponent } from '../link/link.component';
 export class FooterComponent {
   siteLinks = [
     { routerLink: '/', text: 'Home' },
-    { routerLink: '/notes', text: 'Notes' },
+    { routerLink: '/thought', text: 'Thought' },
     { routerLink: '/resume', text: 'Resume' },
   ];
 

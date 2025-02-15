@@ -1,0 +1,16 @@
+{
+  "latest": {
+    "id":"t-0001",
+    "date": "2025-02-14",
+    "title": "Working and learning in the public",
+    "category": "thoughts",
+    "path": "t-0001-working-and-learning-in-the-public"
+  },
+  "categories": [
+    {
+      "name": "Thoughts",
+      "path": "thoughts",
+      "count": "1"
+    }
+  ]
+}

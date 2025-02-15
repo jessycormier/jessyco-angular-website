@@ -10,10 +10,10 @@ export class ResumeWordComponent {
 
   @Input()
   @HostBinding('class.underline')
-  underline: boolean = true;
+  underline = true;
 
   @HostBinding('class.highlight')
-  highlight: boolean = false;
+  highlight = false;
 
   @HostListener('mouseup', ['$event'])
   onMouseUp(e: Event) {

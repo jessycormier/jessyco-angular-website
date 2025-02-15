@@ -1,8 +1,9 @@
-<div class="{{ isShown }} fixed top-0 right-0 bottom-0 left-0 z-10 max-w-full transition-transform">
-  <div class="flex h-screen items-baseline justify-center" (click)="onClose($event)">
-    <div class="md:mt-12 flex max-h-screen max-w-screen flex-col overflow-y-scroll scroll-smooth border-4 border-black bg-white px-12 py-12 text-2xl">
+<div class="{{ isShown }} fixed top-0 right-0 bottom-0 left-0 z-10 max-w-full transition-transform" (click)="onClose($event)" (keydown.enter)="onClose($event)" tabindex="0">
+  <div class="flex h-screen items-baseline justify-center">
+    <div class="flex max-h-screen w-screen max-w-5xl flex-col overflow-y-auto scroll-smooth bg-white px-12 py-12 text-2xl md:mt-12"
+    (click)="$event.stopPropagation();" (keydown.enter)="$event.stopPropagation()" tabindex="0">
       <app-link routerLink="">Home</app-link>
-      <app-link routerLink="notes">Notes</app-link>
+      <app-link routerLink="thoughts">Thoughts</app-link>
       <app-link routerLink="resume">Resume</app-link>
       <div class="mt-3 border-t pt-3 text-center">
         <app-link (click)="onClose($event)">Close</app-link>
