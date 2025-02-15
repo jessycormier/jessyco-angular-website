@@ -17,7 +17,17 @@ export class LayoutService {
         if (event.url === '/') {
           this.breadcrumb = ['home'];
         }
-        this.closeMenu();
+
+        // Split out the last item for now for visual reasons.
+        // I may want to create slots for each visual part so I can better
+        // control what shows on different screen sizes..
+        if (this.breadcrumb.length === 2) {
+          this.breadcrumb = this.breadcrumb.slice(0, 1);
+        }
+
+        if (this.menu()) {
+          this.closeMenu();
+        }
       }
     });
   }
