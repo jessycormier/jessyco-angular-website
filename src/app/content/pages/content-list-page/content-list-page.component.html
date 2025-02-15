@@ -1,12 +1,12 @@
-<div class="my-48">
+<div class="mb-48 mt-20">
 <!-- <header>
   <h1 class="mb-8 bg-black p-12 text-right text-5xl text-white capitalize">{{ category }}</h1>
 </header> -->
 
 @for (item of items; track $index) {
   <div class="flex flex-row gap-1.5 border p-0">
-    <div class="-mt-1 -mb-1 -ml-1 font-mono [writing-mode:sideways-lr;]">
-      <span class="bg-black px-2 text-white uppercase">{{ item.id }}</span>
+    <div class="-mt-1 -mb-1 -ml-1 text-vertical">
+      <span class="bg-black px-2 text-white uppercase font-mono">{{ item.id }}</span>
     </div>
 
     <div class="group flex w-full cursor-pointer flex-row items-center justify-between hover:animate-pulse" [routerLink]="'/' + category + '/' + item.path">

@@ -129,37 +129,21 @@
 @import "./link.css";
 @import "./resume-word.css";
 
-/* @utility strip {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 20px,
-    black 20px,
-    black 40px
-  );
-} */
-/* @layer utilities {
-  .strip {
-    --stripe-size: 20px;
-    background-image: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent var(--stripe-size),
-      black var(--stripe-size),
-      black calc(var(--stripe-size) * 2)
-    );
-  }
-} */
-
-
 @layer utilities {
+
+  .text-vertical {
+    @apply rotate-180;
+    writing-mode: vertical-lr;
+  }
+
   .strip {
     --stripe-size: 20px;
-    --stripe-color: theme(colors.black); /* Default to black */
+    --stripe-color: theme(colors.black);
+    --stripe-alt-color: theme(colors.stone-400);
     background-image: repeating-linear-gradient(
       -45deg,
-      transparent,
-      transparent var(--stripe-size),
+      var(--stripe-alt-color),
+      var(--stripe-alt-color) var(--stripe-size),
       var(--stripe-color) var(--stripe-size),
       var(--stripe-color) calc(var(--stripe-size) * 2)
     );
