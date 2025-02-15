@@ -1,10 +1,10 @@
 <div class="{{ isShown }} fixed inset-0  z-10 transition-transform" (click)="onClose($event)" (keydown.enter)="onClose($event)" tabindex="0">
   <div
-    class="flex max-h-screen w-screen max-w-5xl flex-col gap-6 overflow-y-auto scroll-smooth bg-white px-12 py-12 text-2xl"
+    class="flex max-h-screen absolute inset-y-0 right-0 flex-col gap-6 overflow-y-auto scroll-smooth bg-white px-12 py-8 text-2xl"
     (click)="$event.stopPropagation()"
     (keydown.enter)="$event.stopPropagation()"
     tabindex="0">
-    <div class="strip text-center font-mono text-3xl font-bold text-white uppercase">Site Navigation</div>
+    <div class="strip text-center font-mono text-3xl font-bold text-white uppercase px-2">Site Navigation</div>
     <app-link routerLink="">Home</app-link>
     <app-link routerLink="thoughts">Thoughts</app-link>
     <app-link routerLink="resume">Resume</app-link>

@@ -20,6 +20,7 @@ export class ContentService {
     return this.http.get(`content/${category}/${id}.md`, { responseType: 'text' }).pipe(
       map((markdown) => {
         const parsedMarkdown = this.unifiedService.parseMarkdown(markdown) || { frontmatter: null, markdown: null };
+        console.log(parsedMarkdown);
         return parsedMarkdown || { frontmatter: null, markdown: null };
       }),
       catchError(this.handleError),

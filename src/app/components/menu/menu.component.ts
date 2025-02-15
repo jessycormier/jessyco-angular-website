@@ -11,7 +11,7 @@ export class MenuComponent {
   isShown = '';
   constructor(private layout: LayoutService) {
     effect(() => {
-      this.isShown = this.layout.menu() ? '' : '-translate-y-full';
+      this.isShown = this.layout.menu() ? '' : 'translate-x-full';
     });
   }
 

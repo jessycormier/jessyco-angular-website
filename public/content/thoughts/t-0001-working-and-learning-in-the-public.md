@@ -2,6 +2,7 @@
 id: "t-0001"
 title: "Working and learning in the public"
 date: "2025-02-14"
+category: "thoughts"
 ---
 
 Learning and working in the public. This is something I've been interested in for a long while. I want to have written content on my site and share thoughts and things of interest, if not for the public my future self and for reference.
