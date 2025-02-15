@@ -1,11 +1,13 @@
 <header class="py-8">
-  <div class="flex flex-row items-center justify-start gap-2">
+  <div class="flex flex-row items-center justify-start gap-2 ">
     <app-brand />
-    <div class="line-clamp-1 text-stone-400">
+    <div class="line-clamp-1 text-stone-400 ">
       @for (item of layout.breadcrumb; track $index) {
         / {{ item }}
       }
     </div>
-    <app-link class="text-right grow" (click)="layout.openMenu()">Menu</app-link>
+    <div class="grow text-right">
+      <app-link (click)="layout.openMenu()">Menu</app-link>
+    </div>
   </div>
 </header>

@@ -1,16 +1,23 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, Renderer2, RendererFactory2, signal } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LayoutService {
+  private renderer: Renderer2;
+
   mask = signal<boolean>(false);
   menu = signal<boolean>(false);
 
   breadcrumb: string[] = [];
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    rendererFactory: RendererFactory2,
+  ) {
+    this.renderer = rendererFactory.createRenderer(null, null);
+
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.breadcrumb = event.url.split('/').filter((s) => s.length > 0);
@@ -40,10 +47,20 @@ export class LayoutService {
   openMenu() {
     this.mask.set(true);
     this.menu.set(true);
+    this.disableScroll();
   }
 
   closeMenu() {
     this.mask.set(false);
     this.menu.set(false);
+    this.enableScroll();
+  }
+
+  private disableScroll() {
+    this.renderer.setStyle(document.body, 'overflow', 'hidden');
+  }
+
+  enableScroll() {
+    this.renderer.removeStyle(document.body, 'overflow');
   }
 }

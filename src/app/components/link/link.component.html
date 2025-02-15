@@ -5,7 +5,6 @@
 <ng-template #activeLink>
   <span class="animate-text-pulse" aria-hidden="true">&#95;</span>
 </ng-template>
-
 @if (routerLink !== null || undefined) {
   <a [routerLink]="routerLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
     <ng-container *ngTemplateOutlet="activeLink"></ng-container>
