@@ -17,6 +17,10 @@ export const routes: Routes = [
         path: '',
         component: HomePageComponent,
       },
+      {
+        path: 'resume',
+        loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
+      },
     ],
   },
   // Empty Layout
@@ -25,12 +29,8 @@ export const routes: Routes = [
     component: EmptyLayoutComponent,
     children: [
       {
-        path: 'notes',
-        loadChildren: () => import('./notes/notes.module').then((m) => m.NotesModule),
-      },
-      {
-        path: 'resume',
-        loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
+        path: '',
+        loadChildren: () => import('./content/content.module').then((m) => m.ContentModule),
       },
     ],
   },

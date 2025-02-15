@@ -1,9 +1,0 @@
-<h1 class="text-2xl mb-4">Notes</h1>
-
-<ul>
-  @for (note of notes; track $index) {
-    <li>
-      <app-link [routerLink]="note.url">{{ note.title }}</app-link>
-    </li>
-  }
-</ul>

@@ -3,39 +3,35 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
 import { UnifiedService } from '../services/unified.service';
-import { NoteListItem } from './interfaces/note-list-item.interface';
+import { ContentCategory } from './content-category.enum';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NotesService {
+export class ContentService {
   constructor(
     private http: HttpClient,
     private router: Router,
     private unifiedService: UnifiedService,
   ) {}
 
-  i(s: string) {
-    return this.http.get(s, { responseType: 'text' }).pipe(
-      map((markdown) => {
-        const parsedMarkdown = this.unifiedService.parseMarkdown(markdown) || { frontmatter: null, markdown: null };
-        return parsedMarkdown || { frontmatter: null, markdown: null };
-      }),
-    );
-  }
-
-  getCategoryByName(categoryName?: string) {
-    return this.http.get<NoteListItem[]>('content/posts.json', { responseType: 'json' });
-  }
-
-  getNoteByName(filePath: string) {
-    return this.http.get(filePath, { responseType: 'text' }).pipe(
+  getContent(category: ContentCategory, id: string) {
+    console.log(`content/${category}/${id}.md`);
+    return this.http.get(`content/${category}/${id}.md`, { responseType: 'text' }).pipe(
       map((markdown) => {
         const parsedMarkdown = this.unifiedService.parseMarkdown(markdown) || { frontmatter: null, markdown: null };
         return parsedMarkdown || { frontmatter: null, markdown: null };
       }),
       catchError(this.handleError),
     );
+  }
+
+  getCategory(category: ContentCategory) {
+    console.log('Getting Category', category);
+    return this.http.get(`content/${category}/index.json`, { responseType: 'json' }).pipe(map(json=> {
+      console.log('GOT HERE TOO');
+      return json;
+    }));
   }
 
   goToError404() {

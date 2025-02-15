@@ -6,8 +6,9 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
   templateUrl: './toast.component.html',
 })
 export class ToastComponent {
+
   @Output()
-  onClose = new EventEmitter();
+  close = new EventEmitter();
 
   @Input()
   show = true;
@@ -19,6 +20,6 @@ export class ToastComponent {
 
   onCloseClick() {
     this.show = false;
-    this.onClose.emit();
+    this.close.emit();
   }
 }

@@ -1,4 +1,4 @@
-import { Component, effect, HostListener, signal } from '@angular/core';
+import { Component, effect, HostListener } from '@angular/core';
 import { LayoutService } from '@jc/services/layout.service';
 import { LinkComponent } from '../link/link.component';
 
@@ -21,7 +21,7 @@ export class MenuComponent {
   }
 
   @HostListener('document:keydown.escape', ['$event'])
-  handleEscKey(event: KeyboardEvent) {
+  handleEscKey() {
     this.layout.closeMenu();
   }
 }

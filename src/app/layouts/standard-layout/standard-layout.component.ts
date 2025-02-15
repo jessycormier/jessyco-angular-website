@@ -11,6 +11,4 @@ import { HeaderComponent } from '@jc/components/header/header.component';
 })
 export class StandardLayoutComponent {
   nowYear = new Date().getFullYear();
-
-  constructor() {}
 }
