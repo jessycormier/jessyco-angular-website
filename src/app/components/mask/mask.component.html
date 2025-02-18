@@ -1,5 +1,6 @@
 <div
-  class="fixed inset-0 z-10 max-w-full cursor-pointer bg-black/80 {{ isShown }}"
+  [ngClass]="isShown ? 'opacity-100 z-10' : '-z-50 opacity-0'"
+  class="fixed inset-0  max-w-full cursor-pointer bg-black/80 transition-all duration-300"
   (click)="onClick()"
   (keydown.enter)="onClick()"
   tabindex="0"></div>

@@ -1,15 +1,22 @@
-<div class="{{ isShown }} fixed inset-0  z-10 transition-transform" (click)="onClose($event)" (keydown.enter)="onClose($event)" tabindex="0">
-  <div
-    class="flex max-h-screen absolute inset-y-0 right-0 flex-col gap-6 overflow-y-auto scroll-smooth bg-white px-12 py-8 text-2xl"
-    (click)="$event.stopPropagation()"
-    (keydown.enter)="$event.stopPropagation()"
-    tabindex="0">
-    <div class="strip text-center font-mono text-3xl font-bold text-white uppercase px-2">Site Navigation</div>
-    <app-link routerLink="">Home</app-link>
-    <app-link routerLink="thoughts">Thoughts</app-link>
-    <app-link routerLink="resume">Resume</app-link>
-    <div class="mt-3 border-t pt-3 text-center">
-      <app-link (click)="onClose($event)">Close</app-link>
+<div
+  [ngClass]="isShown ? 'opacity-100' : 'opacity-0 translate-x-full'"
+  class="fixed inset-0 z-10 transition-all duration-300"
+  (click)="onClose($event)"
+  (keydown.enter)="onClose($event)"
+  tabindex="0">
+  <div class="fixed inset-8 overflow-hidden bg-white" (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()" tabindex="0">
+    <div class="text-vertical absolute top-0 bottom-0 left-0 flex flex-row items-end justify-center">
+      <div class="strip animate-bg grow">&nbsp;</div>
+      <div class="px-4 text-center font-mono">Site Navigation</div>
+    </div>
+
+    <div class="mb-2 ml-12 px-2 py-2 text-right">
+      <button (click)="onClose($event)" class="mt-0.5 cursor-pointer bg-black px-2 text-white">Close</button>
+    </div>
+    <div class="absolute inset-0 top-11 left-12 flex flex-col gap-2 overflow-y-auto scroll-smooth border-t py-8">
+      <app-link routerLink="">Home</app-link>
+      <app-link routerLink="thoughts">Thoughts</app-link>
+      <app-link routerLink="resume">Resume</app-link>
     </div>
   </div>
 </div>

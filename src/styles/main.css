@@ -143,7 +143,7 @@
   .strip {
     --stripe-size: 20px;
     --stripe-color: theme(colors.black);
-    --stripe-alt-color: theme(colors.stone-400);
+    --stripe-alt-color: theme(colors.white);
     background-image: repeating-linear-gradient(
       -45deg,
       var(--stripe-alt-color),
