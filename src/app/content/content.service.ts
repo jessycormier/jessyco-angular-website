@@ -16,11 +16,9 @@ export class ContentService {
   ) {}
 
   getContent(category: ContentCategory, id: string) {
-    console.log(`content/${category}/${id}.md`);
     return this.http.get(`content/${category}/${id}.md`, { responseType: 'text' }).pipe(
       map((markdown) => {
         const parsedMarkdown = this.unifiedService.parseMarkdown(markdown) || { frontmatter: null, markdown: null };
-        console.log(parsedMarkdown);
         return parsedMarkdown || { frontmatter: null, markdown: null };
       }),
       catchError(this.handleError),
@@ -28,11 +26,21 @@ export class ContentService {
   }
 
   getCategory(category: ContentCategory) {
-    console.log('Getting Category', category);
-    return this.http.get(`content/${category}/index.json`, { responseType: 'json' }).pipe(map(json=> {
-      console.log('GOT HERE TOO');
-      return json;
-    }));
+    return this.http.get(`content/${category}/index.json`, { responseType: 'json' });
+  }
+
+  getLatest() {
+    return this.http.get(`content/index.json`, { responseType: 'json' }).pipe(
+      map((json: any) => json?.latest || {}),
+      catchError(this.handleError),
+    );
+  }
+
+  getCategories() {
+    return this.http.get(`content/index.json`, { responseType: 'json' }).pipe(
+      map((json: any) => json?.categories || []),
+      catchError(this.handleError),
+    );
   }
 
   goToError404() {
