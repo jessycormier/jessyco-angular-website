@@ -22,3 +22,6 @@ ng build
 Store's the build artifacts in the `dist/` directory.
 By default, the production build optimizes your application for performance and speed.
 
+## Things
+
+This https://www.favicongenerator.io/ website was used to generate the favicons.

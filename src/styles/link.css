@@ -44,10 +44,10 @@ app-link span.btn-link:hover::after {
 }
 
 /* Active Link Indicator */
-app-link a span {
+app-link a span.indicator {
   @apply hidden;
 }
 
-app-link a.active span {
+app-link a.active span.indicator {
   @apply inline-block pr-1 text-stone-900 dark:text-stone-100;
 }

@@ -1,17 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, effect } from '@angular/core';
 import { LayoutService } from '@jc/services/layout.service';
 
 @Component({
   selector: 'app-mask',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './mask.component.html',
 })
 export class MaskComponent {
-  isShown = '';
+  isShown = false;
 
   constructor(private layout: LayoutService) {
     effect(() => {
-      this.isShown = this.layout.mask() ? '' : '-translate-full';
+      this.isShown = this.layout.mask();
     });
   }
 
