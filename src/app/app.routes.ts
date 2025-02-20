@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-import { CenterLayoutComponent } from './layouts/center-layout/center-layout.component';
-import { EmptyLayoutComponent } from './layouts/empty-layout/empty-layout.component';
-import { StandardLayoutComponent } from './layouts/standard-layout/standard-layout.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { Status404PageComponent } from './pages/status-404-page/status-404-page.component';
-import { Status418PageComponent } from './pages/status-418-page/status-418-page.component';
-import { Status500PageComponent } from './pages/status-500-page/status-500-page.component';
+import { CenterLayoutComponent } from '@jc/layouts/center-layout/center-layout.component';
+import { EmptyLayoutComponent } from '@jc/layouts/empty-layout/empty-layout.component';
+import { StandardLayoutComponent } from '@jc/layouts/standard-layout/standard-layout.component';
+import { AboutPageComponent } from '@jc/pages/about-page/about-page.component';
+import { HomePageComponent } from '@jc/pages/home-page/home-page.component';
+import { Status404PageComponent } from '@jc/pages/status-404-page/status-404-page.component';
+import { Status418PageComponent } from '@jc/pages/status-418-page/status-418-page.component';
+import { Status500PageComponent } from '@jc/pages/status-500-page/status-500-page.component';
 
 export const routes: Routes = [
   // Standard Layout
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: '',
         component: HomePageComponent,
+      },
+      {
+        path: 'about',
+        component: AboutPageComponent,
       },
       {
         path: 'resume',

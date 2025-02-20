@@ -1,0 +1,41 @@
+<section class="overflow-hidden bg-gray-200 p-4 pt-12 pb-12 text-2xl">
+  <div class="container mx-auto">
+    <div class="flex content-center justify-start">
+      <div class="flex flex-col justify-center text-center md:text-left">
+        <p class="mb-8 text-4xl">Hi, I'm Jessy Cormier</p>
+
+        <!-- <app-animated-text-writing
+          [text]="['a Web Developer', 'a Photographer', 'a Teacher', 'a Father', 'a Learner', 'a Tinkerer']"></app-animated-text-writing> -->
+
+        <p>
+          Professionally I'm a
+          <mark>Senior Front-End Developer</mark>
+          based in Canada with a passion for
+          <mark>web development</mark>
+          and
+          <mark>user experience</mark>
+          . I'm also
+          <ngx-typed-writer [strings]="iAm" [typeSpeed]="100" [backSpeed]="60" [loop]="true"></ngx-typed-writer>
+        </p>
+      </div>
+      <div class="ml-0 hidden md:ml-8 md:block">
+        <picture>
+          <source srcset="assets/profile.webp" type="image/webp" />
+          <source srcset="assets/profile.jpg" type="image/jpeg" />
+          <img
+            src="assets/profile.webp"
+            alt=""
+            class="object-cover transition duration-300 ease-in-out motion-safe:group-hover:scale-110"
+            style="width: 300px; height: 400px; max-height: 400px; max-width: 300px; min-width: 300px; min-height: 400px" />
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="prose-xl my-12 min-w-full">
+  <p>
+    This section will be a work in progress, most likely for awhile. I do like a lot of different kinds of about pages and I'm not sure what I want here.
+    Professional or personal, maybe a mix? Either way thank you for stopping by.
+  </p>
+</section>

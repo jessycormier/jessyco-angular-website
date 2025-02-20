@@ -1,16 +1,16 @@
 {
   "latest": {
-    "id":"t-0002",
-    "date": "2025-02-18",
-    "title": "Site Navigation Updates",
+    "id": "t-0003",
+    "date": "2025-02-19",
+    "title": "perfect",
     "category": "thoughts",
-    "path": "t-0002-site-navigation-updates"
+    "path": "t-0003-perfect"
   },
   "categories": [
     {
       "name": "Thoughts",
       "path": "thoughts",
-      "count": "2"
+      "count": "3"
     }
   ]
 }

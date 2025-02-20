@@ -11,18 +11,12 @@
   </p>
 </article>
 
-<div class="prose-xl min-w-full mb-12">
-  <h2>Latest Thing</h2>
+<div class="prose-xl mb-12 min-w-full">
+  <h2>Latest Thought</h2>
 </div>
-<div class="mb-6 flex flex-row gap-1.5 border p-0">
-  <div class="text-vertical -mt-1 -mb-1 -ml-0.5">
-    <span class="bg-black px-2 font-mono text-white uppercase">{{ latest.id }}</span>
-  </div>
 
-  <div
-    class="group flex w-full cursor-pointer flex-row items-center justify-between hover:animate-pulse"
-    [routerLink]="'/' + latest.category + '/' + latest.path">
-    <h3 class="line-clamp-2 uppercase">{{ latest.title }}</h3>
-    <span class="pr-8 font-mono text-3xl transition-all group-hover:pr-2">&rarr;</span>
-  </div>
-</div>
+@defer {
+  <app-content-list-item [item]="latestThought"></app-content-list-item>
+} @placeholder (minimum 300ms) {
+  <app-content-list-item [state]="ComponentState.Loading"></app-content-list-item>
+}
