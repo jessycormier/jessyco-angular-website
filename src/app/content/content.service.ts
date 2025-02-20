@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
 import { UnifiedService } from '../services/unified.service';
 import { ContentCategory } from './content-category.enum';
+import { ContentListItem } from '@jc/content/interfaces/content-list-item.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -30,8 +31,8 @@ export class ContentService {
   }
 
   getLatest() {
-    return this.http.get(`content/index.json`, { responseType: 'json' }).pipe(
-      map((json: any) => json?.latest || {}),
+    return this.http.get<ContentListItem>(`content/index.json`, { responseType: 'json' }).pipe(
+      map((json: any) => json?.latest),
       catchError(this.handleError),
     );
   }

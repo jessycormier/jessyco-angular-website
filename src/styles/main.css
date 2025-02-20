@@ -77,6 +77,10 @@
   ol li {
     list-style-type: decimal;
   }
+
+  mark {
+    @apply my-2 inline-block bg-black px-2 py-1 font-mono font-bold text-white;
+  }
 }
 
 @utility container {

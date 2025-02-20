@@ -1,18 +1,24 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ComponentState } from '@jc/component-state.enum';
+import { ContentListItemComponent } from '@jc/components/content-list-item/content-list-item.component';
 import { ContentService } from '@jc/content/content.service';
+import { ContentListItem } from '@jc/content/interfaces/content-list-item.interface';
 
 @Component({
   selector: 'app-home-page',
-  imports: [RouterLink],
+  imports: [ContentListItemComponent],
   templateUrl: './home-page.component.html',
 })
-export class HomePageComponent {
-  latest: any;
+export class HomePageComponent implements OnInit {
+  ComponentState = ComponentState; // expose enum to html template.
 
-  constructor(contentService: ContentService) {
-    contentService.getLatest().subscribe((latest) => {
-      this.latest = latest;
+  latestThought!: ContentListItem;
+
+  constructor(private contentService: ContentService) {}
+
+  ngOnInit() {
+    this.contentService.getLatest().subscribe((item) => {
+      this.latestThought = item;
     });
   }
 }

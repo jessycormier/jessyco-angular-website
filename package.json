@@ -28,6 +28,7 @@
     "front-matter": "^4.0.2",
     "marked": "^15.0.6",
     "ngx-markdown": "^19.0.0",
+    "ngx-typed-writer": "^1.4.0",
     "prismjs": "^1.29.0",
     "remark-frontmatter": "^5.0.0",
     "remark-parse": "^11.0.0",
@@ -74,5 +75,4 @@
       "tailwindcss": "4.x"
     }
   }
-
 }
