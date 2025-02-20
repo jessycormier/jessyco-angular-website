@@ -4,29 +4,31 @@
       <div class="flex flex-col justify-center text-center md:text-left">
         <p class="mb-8 text-4xl">Hi, I'm Jessy Cormier</p>
 
-        <!-- <app-animated-text-writing
-          [text]="['a Web Developer', 'a Photographer', 'a Teacher', 'a Father', 'a Learner', 'a Tinkerer']"></app-animated-text-writing> -->
+        <div class="m-auto md:hidden">
+          <picture>
+            <source srcset="assets/profile.webp" type="image/webp" />
+            <source srcset="assets/profile.jpg" type="image/jpeg" />
+            <img src="assets/profile.webp" alt="" class="max-h-[400px] max-w-[300px] object-cover" />
+          </picture>
+        </div>
 
         <p>
           Professionally I'm a
           <mark>Senior Front-End Developer</mark>
           based in Canada with a passion for
-          <mark>web development</mark>
-          and
-          <mark>user experience</mark>
-          . I'm also
-          <ngx-typed-writer [strings]="iAm" [typeSpeed]="100" [backSpeed]="60" [loop]="true"></ngx-typed-writer>
+          <mark>development</mark>
+          .
         </p>
+        <div>
+          I'm also
+          <ngx-typed-writer [strings]="iAm" [typeSpeed]="100" [backSpeed]="60" [loop]="true"></ngx-typed-writer>
+        </div>
       </div>
       <div class="ml-0 hidden md:ml-8 md:block">
         <picture>
           <source srcset="assets/profile.webp" type="image/webp" />
           <source srcset="assets/profile.jpg" type="image/jpeg" />
-          <img
-            src="assets/profile.webp"
-            alt=""
-            class="object-cover transition duration-300 ease-in-out motion-safe:group-hover:scale-110"
-            style="width: 300px; height: 400px; max-height: 400px; max-width: 300px; min-width: 300px; min-height: 400px" />
+          <img src="assets/profile.webp" alt="" class="h-[400px] max-h-[400px] min-h-[400px] w-[300px] max-w-[300px] min-w-[300px] object-cover" />
         </picture>
       </div>
     </div>
