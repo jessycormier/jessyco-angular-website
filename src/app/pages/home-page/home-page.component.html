@@ -12,11 +12,11 @@
 </article>
 
 <div class="prose-xl mb-12 min-w-full">
-  <h2>Latest Thought</h2>
+  <h2>Latest</h2>
 </div>
 
 @defer {
-  <app-content-list-item [item]="latestThought"></app-content-list-item>
+  <app-content-list-item [item]="latest"></app-content-list-item>
 } @placeholder (minimum 300ms) {
   <app-content-list-item [state]="ComponentState.Loading"></app-content-list-item>
 }

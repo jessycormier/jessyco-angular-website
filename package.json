@@ -4,10 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
+    "prestart": "npm run index-builder",
     "build": "ng build",
+    "prebuild": "npm run index-builder",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:jessyco": "node dist/jessyco/server/server.mjs",
+    "index-builder": "vite-node ./scripts/index-builder.ts",
     "lint": "ng lint"
   },
   "private": true,
@@ -37,6 +40,7 @@
     "tslib": "^2.3.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0",
+    "vite-node": "^3.0.6",
     "yaml": "^2.7.0",
     "zone.js": "~0.15.0"
   },

@@ -1,7 +1,6 @@
-export interface ContentListItem {
+export interface MarkdownItem {
   id: string;
   date: string;
   title: string;
-  category?: string;
   path: string;
 }
