@@ -22,7 +22,8 @@ export class MenuComponent {
     private layout: LayoutService,
     contentService: ContentService,
   ) {
-    contentService.getCategory(ContentCategory.Thought).subscribe((categories) => (this.categories = categories));
+
+    contentService.getCategoryList().subscribe((categories) => (this.categories = categories));
 
     effect(() => {
       this.isShown = this.layout.menu();

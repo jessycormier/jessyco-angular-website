@@ -34,6 +34,16 @@ export class ContentService {
     );
   }
 
+  getCategoryList() {
+    return this.getContentIndex().pipe(
+      map((json) => {
+        return json.categories.map((c) => {
+          return { ...c, items: undefined };
+        });
+      }),
+      catchError(this.handleError),
+    );
+  }
   getLatest() {
     return this.getContentIndex().pipe(
       map((json) => json.latest),
@@ -44,7 +54,7 @@ export class ContentService {
   private getContentIndex() {
     return this.http
       .get<{
-        categories: { name: string; path: string; count: number; items: [] }[];
+        categories: { name: string; path: string; count: number; items?: [] }[];
         latest: { id: string; date: string; title: string; path: string };
       }>(`content/index.json`, { responseType: 'json' })
       .pipe(catchError(this.handleError));
