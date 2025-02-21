@@ -2,6 +2,6 @@ export interface ContentListItem {
   id: string;
   date: string;
   title: string;
-  category: string;
+  category?: string;
   path: string;
 }

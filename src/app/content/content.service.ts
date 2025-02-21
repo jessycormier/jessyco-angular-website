@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
 import { UnifiedService } from '../services/unified.service';
 import { ContentCategory } from './content-category.enum';
-import { ContentListItem } from '@jc/content/interfaces/content-list-item.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,21 +26,28 @@ export class ContentService {
   }
 
   getCategory(category: ContentCategory) {
-    return this.http.get(`content/${category}/index.json`, { responseType: 'json' });
+    return this.getContentIndex().pipe(
+      map((json) => {
+        return json.categories.filter((c) => c.name === category)[0].items;
+      }),
+      catchError(this.handleError),
+    );
   }
 
   getLatest() {
-    return this.http.get<ContentListItem>(`content/index.json`, { responseType: 'json' }).pipe(
-      map((json: any) => json?.latest),
+    return this.getContentIndex().pipe(
+      map((json) => json.latest),
       catchError(this.handleError),
     );
   }
 
-  getCategories() {
-    return this.http.get(`content/index.json`, { responseType: 'json' }).pipe(
-      map((json: any) => json?.categories || []),
-      catchError(this.handleError),
-    );
+  private getContentIndex() {
+    return this.http
+      .get<{
+        categories: { name: string; path: string; count: number; items: [] }[];
+        latest: { id: string; date: string; title: string; path: string };
+      }>(`content/index.json`, { responseType: 'json' })
+      .pipe(catchError(this.handleError));
   }
 
   goToError404() {

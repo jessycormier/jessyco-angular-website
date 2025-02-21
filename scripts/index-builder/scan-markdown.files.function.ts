@@ -27,7 +27,7 @@ export async function scanMarkdownFiles(rootDir: string): Promise<CategoriesAndL
       name: subdir.replace(/-/g, ' '),
       path: subdir,
       count: items.length,
-      items,
+      items: items.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))
     });
   }
 

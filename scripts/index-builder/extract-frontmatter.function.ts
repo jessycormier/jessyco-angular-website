@@ -3,7 +3,7 @@ import path from 'path';
 import { processor } from './get-markdown-processor.function';
 import { MarkdownItem } from './markdown-item.interface';
 
-export function extractFrontmatter(dir:string, filePath: string): MarkdownItem | null {
+export function extractFrontmatter(dir: string, filePath: string): MarkdownItem | null {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   const file = processor.processSync(fileContent);
   const data: any = file?.data?.['frontmatter'];
@@ -14,7 +14,7 @@ export function extractFrontmatter(dir:string, filePath: string): MarkdownItem |
       id: data.id,
       date: data.date,
       title: data.title,
-      path: `${dir}/${path.basename(filePath)}`,
+      path: `${dir}/${path.basename(filePath).replace('.md', '')}`,
     };
   }
   return null;
