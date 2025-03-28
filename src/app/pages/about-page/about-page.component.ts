@@ -7,9 +7,12 @@ import { NgxTypedWriterModule } from 'ngx-typed-writer';
   templateUrl: './about-page.component.html',
 })
 export class AboutPageComponent {
+  profileImage = 'assets/profile/profile2.png';
+
   iAm!: string[];
 
   constructor() {
+
     this.iAm = this.shuffleArray([
       'a web developer',
       'a photographer',
@@ -22,6 +25,10 @@ export class AboutPageComponent {
       'a nature walker',
       'a reader',
       'a gamer',
+      'a friend',
+      'a husband',
+      'a explorer',
+      'a creator',
     ]);
   }
 
