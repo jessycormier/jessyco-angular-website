@@ -55,7 +55,7 @@ export class ContentService {
     return this.http
       .get<{
         categories: { name: string; path: string; count: number; items?: [] }[];
-        latest: { id: string; date: string; title: string; path: string };
+        latest: { id: string; date: string; title: string; path: string }[];
       }>(`content/index.json`, { responseType: 'json' })
       .pipe(catchError(this.handleError));
   }

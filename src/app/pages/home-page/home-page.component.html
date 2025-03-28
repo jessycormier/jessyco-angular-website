@@ -11,12 +11,19 @@
   </p>
 </article>
 
-<div class="prose-xl mb-12 min-w-full">
-  <h2>Latest</h2>
-</div>
+<section>
+  <header class="prose-xl mb-12 min-w-full">
+    <h2>Latest</h2>
+  </header>
 
-@defer {
-  <app-content-list-item [item]="latest"></app-content-list-item>
-} @placeholder (minimum 300ms) {
-  <app-content-list-item [state]="ComponentState.Loading"></app-content-list-item>
-}
+  @defer {
+    @for (item of latestItems; track $index) {
+      <app-content-list-item [item]="item"></app-content-list-item>
+    }
+  } @placeholder (minimum 0ms) {
+    <app-content-list-item [state]="ComponentState.Loading"></app-content-list-item>
+    <app-content-list-item [state]="ComponentState.Loading" class="opacity-70"></app-content-list-item>
+    <app-content-list-item [state]="ComponentState.Loading" class="opacity-40"></app-content-list-item>
+    <app-content-list-item [state]="ComponentState.Loading" class="opacity-10"></app-content-list-item>
+  }
+</section>

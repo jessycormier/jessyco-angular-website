@@ -4,11 +4,10 @@ import { extractFrontmatter } from './extract-frontmatter.function';
 import { getMarkdownFiles } from './get-markdown-files.function';
 import { getSubdirectories } from './get-sub-directories.function';
 import { MarkdownItem } from './markdown-item.interface';
-import { error } from 'console';
 
 interface CategoriesAndLatest {
   categories: Category[];
-  latest?: MarkdownItem;
+  latest?: MarkdownItem[];
 }
 
 export async function scanMarkdownFiles(rootDir: string): Promise<CategoriesAndLatest> {
@@ -27,12 +26,13 @@ export async function scanMarkdownFiles(rootDir: string): Promise<CategoriesAndL
       name: subdir.replace(/-/g, ' '),
       path: subdir,
       count: items.length,
-      items: items.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id))
+      items: items.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id)),
     });
   }
+  const sortedItems = allItems.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
 
   return {
     categories,
-    latest: allItems.sort((a, b) => b.date.localeCompare(a.date))[0],
+    latest: sortedItems.slice(0, 10),
   } as CategoriesAndLatest;
 }
