@@ -13,6 +13,24 @@ export const contentRoutes: Routes = [
     component: StandardLayoutComponent,
     children: [
       {
+        path: 'blog/:id',
+        component: ContentPageComponent,
+        resolve: { content: contentResolver },
+        data: {
+          layout: ContentLayout.Content,
+          category: ContentCategory.Blog,
+        } as ContentRouteData,
+      },
+      {
+        path: 'blog',
+        component: ContentListPageComponent,
+        resolve: { items: contentResolver },
+        data: {
+          layout: ContentLayout.List,
+          category: ContentCategory.Blog,
+        } as ContentRouteData,
+      },
+      {
         path: 'thoughts/:id',
         component: ContentPageComponent,
         resolve: { content: contentResolver },

@@ -1,6 +1,6 @@
 export enum ContentCategory {
   Thought = 'thoughts',
   Post = 'posts',
-  Blog = 'blogs',
+  Blog = 'blog',
   SiteUpdate = 'site-updates',
 }
