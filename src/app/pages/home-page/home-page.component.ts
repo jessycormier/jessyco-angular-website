@@ -12,11 +12,11 @@ import { ContentListItem } from '@jc/content/interfaces/content-list-item.interf
 export class HomePageComponent implements OnInit {
   ComponentState = ComponentState; // expose enum to html template.
 
-  latest!: ContentListItem;
+  latestItems!: ContentListItem[];
 
   constructor(private contentService: ContentService) {}
 
   ngOnInit() {
-    this.contentService.getLatest().subscribe((x) => (this.latest = x));
+    this.contentService.getLatest().subscribe((contentItems) => (this.latestItems = contentItems));
   }
 }
