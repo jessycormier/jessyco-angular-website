@@ -16,9 +16,9 @@ export class FooterComponent {
   ];
 
   socialLinks = [
-    { href: 'https://x.com/jessycormier', text: 'X' },
+    { href: 'https://x.com/jessycormier', text: 'X ( Twitter )' },
     { href: 'https://www.linkedin.com/in/jessyco', text: 'LinkedIn' },
-    { href: 'https://bsky.app/profile/jessy.co', text: 'Bluesky' },
+    // { href: 'https://bsky.app/profile/jessy.co', text: 'Bluesky' },
     { href: 'https://github.com/jessycormier', text: 'GitHub' },
   ];
 }

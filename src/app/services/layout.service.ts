@@ -58,9 +58,11 @@ export class LayoutService {
 
   private disableScroll() {
     this.renderer.setStyle(document.body, 'overflow', 'hidden');
+    this.renderer.setStyle(document.body, 'padding-right', '16px'); // Adjust for scrollbar width
   }
 
   enableScroll() {
     this.renderer.removeStyle(document.body, 'overflow');
+    this.renderer.removeStyle(document.body, 'padding-right');
   }
 }

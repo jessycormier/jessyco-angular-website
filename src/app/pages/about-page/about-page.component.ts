@@ -1,18 +1,19 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MarkdownModule } from 'ngx-markdown';
 import { NgxTypedWriterModule } from 'ngx-typed-writer';
 
 @Component({
   selector: 'app-about-page',
-  imports: [NgxTypedWriterModule],
+  imports: [CommonModule, NgxTypedWriterModule, MarkdownModule],
   templateUrl: './about-page.component.html',
 })
 export class AboutPageComponent {
-  profileImage = 'assets/profile/profile2.png';
+  profileImage = 'assets/profile/profile.jpg';
 
   iAm!: string[];
 
   constructor() {
-
     this.iAm = this.shuffleArray([
       'a web developer',
       'a photographer',
