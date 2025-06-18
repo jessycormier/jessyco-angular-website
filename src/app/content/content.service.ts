@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
 import { UnifiedService } from '../services/unified.service';
@@ -9,55 +9,64 @@ import { ContentCategory } from './content-category.enum';
   providedIn: 'root',
 })
 export class ContentService {
-  constructor(
-    private http: HttpClient,
-    private router: Router,
-    private unifiedService: UnifiedService,
-  ) {}
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private unifiedService = inject(UnifiedService);
 
   getContent(category: ContentCategory, id: string) {
-    return this.http.get(`content/${category}/${id}.md`, { responseType: 'text' }).pipe(
+    const results = this.http.get(`content/${category}/${id}.md`, { responseType: 'text' }).pipe(
       map((markdown) => {
         const parsedMarkdown = this.unifiedService.parseMarkdown(markdown) || { frontmatter: null, markdown: null };
         return parsedMarkdown || { frontmatter: null, markdown: null };
       }),
-      catchError(this.handleError),
+      catchError((error) => this.handleError(error)),
     );
+
+    return results;
   }
 
   getCategory(category: ContentCategory) {
-    return this.getContentIndex().pipe(
+    const results = this.getContentIndex().pipe(
       map((json) => {
-        return json.categories.filter((c) => c.name === category)[0].items;
+        return json.categories.filter((c) => c.path === category)[0].items;
       }),
-      catchError(this.handleError),
+      catchError((error) => this.handleError(error)),
     );
+
+    return results;
   }
 
   getCategoryList() {
-    return this.getContentIndex().pipe(
+    const results = this.getContentIndex().pipe(
       map((json) => {
         return json.categories.map((c) => {
           return { ...c, items: undefined };
         });
       }),
-      catchError(this.handleError),
+      catchError((error) => this.handleError(error)),
     );
+
+    return results;
   }
+
   getLatest() {
-    return this.getContentIndex().pipe(
+    const results = this.getContentIndex().pipe(
       map((json) => json.latest),
-      catchError(this.handleError),
+      catchError((error) => this.handleError(error)),
     );
+
+    return results;
   }
 
   private getContentIndex() {
-    return this.http
+    const results = this.http
       .get<{
         categories: { name: string; path: string; count: number; items?: [] }[];
         latest: { id: string; date: string; title: string; path: string }[];
       }>(`content/index.json`, { responseType: 'json' })
-      .pipe(catchError(this.handleError));
+      .pipe(catchError((error) => this.handleError(error)));
+
+    return results;
   }
 
   goToError404() {
