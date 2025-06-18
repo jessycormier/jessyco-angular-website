@@ -81,6 +81,18 @@
   mark {
     @apply my-2 inline-block bg-black px-2 py-1 font-mono font-bold text-white;
   }
+
+
+  blockquote {
+    @apply relative bg-black font-mono tracking-tight text-white;
+    @apply text-sm;
+    /* @apply mx-auto max-w-2xl; */
+    @apply -rotate-2 transform;
+    @apply transition-transform duration-300 hover:scale-105 hover:rotate-0;
+  }
+  blockquote p {
+    @apply py-4 px-2;
+  }
 }
 
 @utility container {
