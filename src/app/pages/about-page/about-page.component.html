@@ -7,14 +7,16 @@
         <div class="m-auto md:hidden">
           <picture>
             <source srcset="{{profileImage}}" type="image/png" />
-            <img src="{{profileImage}}" alt="" class="max-h-[400px] max-w-[300px] object-cover" />
+            <img src="{{ profileImage }}" alt="" class="max-h-[400px] max-w-[300px] object-cover" />
           </picture>
         </div>
 
         <p>
           Professionally I'm a
           <mark>Senior Front-End Developer</mark>
-          based in Canada with a passion for
+          based in
+          <mark class="bg-red-500 text-white">Canada</mark>
+          with a passion for
           <mark>development</mark>
           .
         </p>
@@ -26,7 +28,7 @@
       <div class="ml-0 hidden md:ml-8 md:block">
         <picture>
           <source srcset="{{profileImage}}" type="image/png" />
-          <img src="{{profileImage}}" alt="" class="h-[400px] max-h-[400px] min-h-[400px] w-[300px] max-w-[300px] min-w-[300px] object-cover" />
+          <img src="{{ profileImage }}" alt="" class="h-[400px] max-h-[400px] min-h-[400px] w-[300px] max-w-[300px] min-w-[300px] object-cover" />
         </picture>
       </div>
     </div>
@@ -34,8 +36,65 @@
 </section>
 
 <section class="prose-xl my-12 min-w-full">
-  <p>
-    This section will be a work in progress, most likely for awhile. I do like a lot of different kinds of about pages and I'm not sure what I want here.
-    Professional or personal, maybe a mix? Either way thank you for stopping by.
-  </p>
+  I'll include a few random embeds from different platforms. Think of it like the old school affiliate links on the bottom of Angelfire / Geocities pages but
+  way more random in size and content... so really it's nothing like the affiliate links.
 </section>
+
+<div class="mt-12 flex flex-wrap items-center justify-center gap-12">
+  <div>
+    <a href="https://app.daily.dev/jessyco">
+      <img src="https://api.daily.dev/devcards/v2/CtgeFke7NlVU0hBnKP3ND.png?type=wide&r=1ig" width="208" alt="jessy.co's Dev Card" />
+    </a>
+  </div>
+  <div>
+    Stack Overflow
+    <a href="https://stackoverflow.com/users/396842/jessy">
+      <img
+        src="https://stackoverflow.com/users/flair/396842.png"
+        width="208"
+        height="58"
+        alt="profile for Jessy at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+        title="profile for Jessy at Stack Overflow, Q&amp;A for professional and enthusiast programmers" />
+    </a>
+  </div>
+  <div>
+    <a href="https://www.buymeacoffee.com/jessyco" target="_blank">
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important" />
+    </a>
+  </div>
+  <div>
+    GitHub
+    <iframe
+      src="https://github.com/sponsors/jessycormier/button"
+      title="Sponsor jessycormier"
+      height="32"
+      width="114"
+      style="border: 0; border-radius: 6px"></iframe>
+  </div>
+  <div class="w-full">
+    <div *ngTemplateOutlet="goodreads"></div>
+  </div>
+</div>
+
+<ng-template #goodreads>
+  <style type="text/css" media="screen">
+    .gr_grid_book_container {
+      float: left;
+      width: 39px;
+      height: 60px;
+      padding: 0px 0px;
+      overflow: hidden;
+    }
+  </style>
+  <div id="gr_grid_widget_1750258582"></div>
+  <div id="gr_grid_widget_1750258440"></div>
+  <script
+    src="https://www.goodreads.com/review/grid_widget/183910752.Jessy's%20currently-reading%20book%20montage?cover_size=small&hide_link=&hide_title=&num_books=20&order=a&shelf=currently-reading&sort=date_added&widget_id=1750258582"
+    type="text/javascript"
+    charset="utf-8"></script>
+
+  <script
+    src="https://www.goodreads.com/review/grid_widget/183910752?cover_size=small&hide_link=&hide_title=&num_books=20&order=a&shelf=read&sort=date_added&widget_id=1750258440"
+    type="text/javascript"
+    charset="utf-8"></script>
+</ng-template>
