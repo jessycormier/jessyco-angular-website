@@ -7,6 +7,7 @@ export interface Content extends ContentRouteData {
     title: string;
     date: string;
     category: ContentCategory;
+    aiEditor?: boolean
   };
   markdown: string;
 }

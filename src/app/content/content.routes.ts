@@ -30,6 +30,24 @@ export const contentRoutes: Routes = [
           category: ContentCategory.Blog,
         } as ContentRouteData,
       },
+            {
+        path: 'figment-blog/:id',
+        component: ContentPageComponent,
+        resolve: { content: contentResolver },
+        data: {
+          layout: ContentLayout.Content,
+          category: ContentCategory.FigmentBlog,
+        } as ContentRouteData,
+      },
+      {
+        path: 'figment-blog',
+        component: ContentListPageComponent,
+        resolve: { items: contentResolver },
+        data: {
+          layout: ContentLayout.List,
+          category: ContentCategory.FigmentBlog,
+        } as ContentRouteData,
+      },
       {
         path: 'thoughts/:id',
         component: ContentPageComponent,
