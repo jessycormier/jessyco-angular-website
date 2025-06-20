@@ -29,7 +29,7 @@
           "options": {
             "verbose": true,
             "outputPath": "dist/jessyco",
-            "index": "src/index.html",
+            "index": "src/indexFile.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"

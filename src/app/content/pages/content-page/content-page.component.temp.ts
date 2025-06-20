@@ -1,6 +1,6 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { isPlatformBrowser } from '@angular/common';
 import { ContentCategory } from '@jc/content/content-category.enum';
 import { Content } from '@jc/content/interfaces/content.interface';
 import { MetaTagsService } from '@jc/services/meta-tags.service';
