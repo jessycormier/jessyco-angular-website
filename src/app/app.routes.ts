@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { CenterLayoutComponent } from '@jc/layouts/center-layout/center-layout.component';
 import { EmptyLayoutComponent } from '@jc/layouts/empty-layout/empty-layout.component';
 import { StandardLayoutComponent } from '@jc/layouts/standard-layout/standard-layout.component';
-import { AboutPageComponent } from '@jc/pages/about-page/about-page.component';
 import { HomePageComponent } from '@jc/pages/home-page/home-page.component';
 import { Status404PageComponent } from '@jc/pages/status-404-page/status-404-page.component';
 import { Status418PageComponent } from '@jc/pages/status-418-page/status-418-page.component';
@@ -21,20 +20,13 @@ export const routes: Routes = [
           meta: {
             title: 'Jessy.co - Developer, Builder, Learner',
             description: "Hi, I'm Jessy welcome to my website. I write about development, share thoughts, and document my journey building tools.",
-            keywords: 'jessyco, jessy, developer, blog, portfolio, angular, typescript, web development'
-          }
-        }
+            keywords: 'jessyco, jessy, developer, blog, portfolio, angular, typescript, web development',
+          },
+        },
       },
       {
         path: 'about',
-        component: AboutPageComponent,
-        data: {
-          meta: {
-            title: 'About Jessy | Jessy.co',
-            description: 'Learn more about Jessy - a web developer, photographer, teacher, father, and lifelong learner passionate about building tools and sharing knowledge.',
-            keywords: 'about jessy, web developer, photographer, teacher, portfolio, biography'
-          }
-        }
+        loadChildren: () => import('./about/about.module').then((m) => m.AboutModule),
       },
       {
         path: 'resume',
@@ -42,10 +34,10 @@ export const routes: Routes = [
         data: {
           meta: {
             title: 'Resume | Jessy.co',
-            description: 'View Jessy\'s professional resume and work experience as a web developer and technical educator.',
-            keywords: 'resume, cv, web developer, experience, skills, portfolio'
-          }
-        }
+            description: "View Jessy's professional resume and work experience as a web developer and technical educator.",
+            keywords: 'resume, cv, web developer, experience, skills, portfolio',
+          },
+        },
       },
     ],
   },
