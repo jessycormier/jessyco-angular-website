@@ -6,16 +6,17 @@ import { HomePageComponent } from '@jc/pages/home-page/home-page.component';
 import { Status404PageComponent } from '@jc/pages/status-404-page/status-404-page.component';
 import { Status418PageComponent } from '@jc/pages/status-418-page/status-418-page.component';
 import { Status500PageComponent } from '@jc/pages/status-500-page/status-500-page.component';
+import { metaResolver } from '@jc/resolvers/meta.resolver';
 
 export const routes: Routes = [
   // Standard Layout
   {
     path: '',
     component: StandardLayoutComponent,
-    children: [
-      {
+    children: [      {
         path: '',
         component: HomePageComponent,
+        resolve: { meta: metaResolver },
         data: {
           meta: {
             title: 'Jessy.co - Developer, Builder, Learner',
