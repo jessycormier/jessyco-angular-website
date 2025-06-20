@@ -1,4 +1,4 @@
-import { ComponentState } from '@jc/component-state.enum';
+import { ComponentState } from './component-state.enum';
 
 /**
  * An interface to describe stateful components.

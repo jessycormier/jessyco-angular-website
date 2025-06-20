@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgxTypedWriterModule } from 'ngx-typed-writer';
-import { MetaTagsService } from '@jc/services/meta-tags.service';
+import { MetaTagsService } from 'src/app/services/meta-tags.service';
 
 @Component({
   selector: 'app-about-page',

@@ -1,9 +1,9 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRouteSnapshot, ResolveFn, Router } from '@angular/router';
-import { CategoryValidationService } from '@jc/content/services/category-validation.service';
-import { ContentService } from '@jc/content/services/content.service';
-import { MetaTagsService } from '@jc/services/meta-tags.service';
+import { CategoryValidationService } from '../content/services/category-validation.service';
+import { ContentService } from '../content/services/content.service';
+import { MetaTagsService } from '../services/meta-tags.service';
 import { catchError, of, switchMap, tap } from 'rxjs';
 
 /**

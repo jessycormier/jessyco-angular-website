@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { contentMetaResolver } from '@jc/resolvers/content-meta.resolver';
+import { contentMetaResolver } from '../resolvers/content-meta.resolver';
 import { StandardLayoutComponent } from '../layouts/standard-layout/standard-layout.component';
 import { ContentListPageComponent } from './pages/content-list-page/content-list-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';

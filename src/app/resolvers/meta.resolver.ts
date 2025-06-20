@@ -1,7 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
-import { MetaTagsService } from '@jc/services/meta-tags.service';
+import { MetaTagsService } from '../services/meta-tags.service';
 import { of } from 'rxjs';
 
 /**
