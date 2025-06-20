@@ -3,6 +3,8 @@ id: "t-0002"
 title: "Site Navigation Updates"
 date: "2025-02-18"
 category: "thoughts"
+description: "Updates on website design iterations, UX improvements, and the challenge of building minimal design while improving the content publishing workflow from manual to automated."
+keywords: "website updates, UX design, minimal design, content publishing, workflow automation, web development"
 ---
 
 I've been pushing a bunch of updates to the site. Mostly iterating over some of the designs and UX.

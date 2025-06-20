@@ -4,6 +4,8 @@ title: "About AI"
 date: "2025-06-17"
 category: "thoughts"
 aiEditor: true
+description: "My perspective on using AI as a writing tool to overcome creative roadblocks and transform ideas into structured, readable content without losing authenticity."
+keywords: "AI, artificial intelligence, writing tools, content creation, AI editing, productivity, writing workflow"
 ---
 
 Look, I know AI is kind of controversial at the moment.

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ContentCategory } from '@jc/content/content-category.enum';
 import { Content } from '@jc/content/interfaces/content.interface';
+import { MetaTagsService } from '@jc/services/meta-tags.service';
 import { MarkdownModule } from 'ngx-markdown';
 import { LinkComponent } from "../../../components/link/link.component";
 
@@ -17,7 +18,11 @@ export class ContentPageComponent {
   category!: ContentCategory;
   aiEditor = false;
   markdown!: string;
-  constructor(private route: ActivatedRoute) {
+
+  constructor(
+    private route: ActivatedRoute,
+    private metaTagsService: MetaTagsService
+  ) {
     this.route.data.subscribe((data) => {
       this.data = data['content'] as Content;
 
@@ -29,6 +34,25 @@ export class ContentPageComponent {
         this.category = this.data.frontmatter.category;
         this.aiEditor = this.data.frontmatter.aiEditor ?? false;
         this.markdown = this.data.markdown;
+
+        // Update meta tags for this content
+        const metaConfig = this.metaTagsService.generateContentMetaTags(
+          this.data.frontmatter,
+          this.data.markdown
+        );
+
+        // Override with any custom meta from frontmatter
+        if (this.data.frontmatter.description) {
+          metaConfig.description = this.data.frontmatter.description;
+        }
+        if (this.data.frontmatter.keywords) {
+          metaConfig.keywords = this.data.frontmatter.keywords;
+        }
+        if (this.data.frontmatter.image) {
+          metaConfig.image = this.data.frontmatter.image;
+        }
+
+        this.metaTagsService.updateTags(metaConfig);
       } else {
         // Handle null data gracefully
         this.id = '';
@@ -37,6 +61,12 @@ export class ContentPageComponent {
         this.category = ContentCategory.Blog;
         this.aiEditor = false;
         this.markdown = '# Content not available\n\nThis content could not be loaded.';
+
+        // Set error meta tags
+        this.metaTagsService.updateTags({
+          title: 'Content not found | Jessy.co',
+          description: 'The requested content could not be found.',
+        });
       }
     });
   }

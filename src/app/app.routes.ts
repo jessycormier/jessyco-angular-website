@@ -17,14 +17,35 @@ export const routes: Routes = [
       {
         path: '',
         component: HomePageComponent,
+        data: {
+          meta: {
+            title: 'Jessy.co - Developer, Builder, Learner',
+            description: "Hi, I'm Jessy welcome to my website. I write about development, share thoughts, and document my journey building tools.",
+            keywords: 'jessyco, jessy, developer, blog, portfolio, angular, typescript, web development'
+          }
+        }
       },
       {
         path: 'about',
         component: AboutPageComponent,
+        data: {
+          meta: {
+            title: 'About Jessy | Jessy.co',
+            description: 'Learn more about Jessy - a web developer, photographer, teacher, father, and lifelong learner passionate about building tools and sharing knowledge.',
+            keywords: 'about jessy, web developer, photographer, teacher, portfolio, biography'
+          }
+        }
       },
       {
         path: 'resume',
         loadChildren: () => import('./resume/resume.module').then((m) => m.ResumeModule),
+        data: {
+          meta: {
+            title: 'Resume | Jessy.co',
+            description: 'View Jessy\'s professional resume and work experience as a web developer and technical educator.',
+            keywords: 'resume, cv, web developer, experience, skills, portfolio'
+          }
+        }
       },
     ],
   },
