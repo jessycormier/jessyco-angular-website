@@ -27,6 +27,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "verbose": true,
             "outputPath": "dist/jessyco",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -129,6 +130,14 @@
               "src/**/*.ts",
               "src/**/*.html"
             ]
+          }
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "browserTarget": "jessyco:build:production",
+            "serverTarget": "jessyco:build:production",
+            "routesFile": "public/content/routes.txt"
           }
         }
       }
