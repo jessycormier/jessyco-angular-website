@@ -1,19 +1,19 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MarkdownModule } from 'ngx-markdown';
 import { NgxTypedWriterModule } from 'ngx-typed-writer';
+import { MetaTagsService } from '@jc/services/meta-tags.service';
 
 @Component({
   selector: 'app-about-page',
   imports: [CommonModule, NgxTypedWriterModule, MarkdownModule],
   templateUrl: './about-page.component.html',
 })
-export class AboutPageComponent {
+export class AboutPageComponent implements OnInit {
   profileImage = 'assets/profile/profile.jpg';
 
   iAm!: string[];
-
-  constructor() {
+  constructor(private metaTagsService: MetaTagsService) {
     this.iAm = this.shuffleArray([
       'a web developer',
       'a photographer',
@@ -31,6 +31,18 @@ export class AboutPageComponent {
       'a explorer',
       'a creator',
     ]);
+  }
+
+  ngOnInit() {
+    // Set about page meta tags
+    this.metaTagsService.updateTags({
+      title: 'About Jessy | Jessy.co',
+      description: 'Learn more about Jessy - a web developer, photographer, teacher, father, and lifelong learner passionate about building tools and sharing knowledge.',
+      keywords: 'about jessy, web developer, photographer, teacher, portfolio, biography',
+      url: 'https://jessy.co/about',
+      type: 'profile',
+      image: 'https://jessy.co/assets/profile/profile.jpg'
+    });
   }
 
   /**

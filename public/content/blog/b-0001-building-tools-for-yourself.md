@@ -3,6 +3,8 @@ id: "b-0001"
 title: "Building tools for yourself"
 date: "2025-03-2"
 category: "blog"
+description: "Why I choose to build personal tools instead of using existing solutions, and what I've learned along the way about the balance between learning and productivity."
+keywords: "personal tools, side projects, development, learning, productivity, project management"
 ---
 
 I've been working on a side project for a while now. It started a little before I started working on the rework of my website with a simple requirement. I needed to track the value of some things that I owned as well as pictures for insurance. Originally I was thinking of just throwing together something in Obsidian or in excel/sheets.
