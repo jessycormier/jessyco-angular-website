@@ -1,28 +1,49 @@
 import { inject } from '@angular/core';
-import { ResolveFn } from '@angular/router';
-import { ContentService } from './content.service';
-import { ContentCategory } from './content-category.enum';
-import { ContentLayout } from './content-layout.enum';
+import { ResolveFn, Router } from '@angular/router';
+import { catchError, of, switchMap } from 'rxjs';
+import { ContentService } from './services/content.service';
+import { CategoryValidationService } from './services/category-validation.service';
 
 export const contentResolver: ResolveFn<any | null> = (route) => {
   const contentService = inject(ContentService);
+  const categoryValidationService = inject(CategoryValidationService);
+  const router = inject(Router);
 
+  // Get category and id from route parameters
+  const categoryParam = route.paramMap.get('category');
   const id = route.paramMap.get('id');
 
-  const routeData = route.data as {
-    layout: ContentLayout;
-    category: ContentCategory;
-  };
-
-  if (routeData.layout == ContentLayout.List) {
-    return contentService.getCategory(routeData.category);
+  if (!categoryParam) {
+    router.navigate(['/error/404']);
+    return of(null);
   }
 
-  if (routeData.layout == ContentLayout.Content && id) {
-    return contentService.getContent(routeData.category, id);
-  }
+  // Validate category exists in index.json and get corresponding enum
+  return categoryValidationService.getValidCategoryEnum(categoryParam).pipe(
+    switchMap((category) => {
+      if (!category) {
+        router.navigate(['/error/404']);
+        return of(null);
+      }
 
-  // Could be fun to have a randomizer to go to "known" page if content was not found.
-
-  return;
+      // Determine if this is a list or content request based on presence of id
+      if (id) {
+        // Content request (e.g., /blog/my-post)
+        return contentService.getContent(category, id).pipe(
+          catchError(() => {
+            router.navigate(['/error/404']);
+            return of(null);
+          })
+        );
+      } else {
+        // List request (e.g., /blog)
+        return contentService.getCategory(category).pipe(
+          catchError(() => {
+            router.navigate(['/error/404']);
+            return of(null);
+          })
+        );
+      }
+    })
+  );
 };

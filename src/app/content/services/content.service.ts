@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, map, of, throwError } from 'rxjs';
-import { UnifiedService } from '../services/unified.service';
-import { ContentCategory } from './content-category.enum';
+import { UnifiedService } from '../../services/unified.service';
+import { ContentCategory } from '../content-category.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -24,11 +24,14 @@ export class ContentService {
 
     return results;
   }
-
   getCategory(category: ContentCategory) {
     const results = this.getContentIndex().pipe(
       map((json) => {
-        return json.categories.filter((c) => c.path === category)[0].items;
+        const categoryData = json.categories.find((c) => c.path === category);
+        if (!categoryData) {
+          throw new Error(`Category '${category}' not found in index`);
+        }
+        return categoryData.items || [];
       }),
       catchError((error) => this.handleError(error)),
     );

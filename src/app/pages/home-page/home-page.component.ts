@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ComponentState } from '@jc/component-state.enum';
 import { ContentListItemComponent } from '@jc/components/content-list-item/content-list-item.component';
-import { ContentService } from '@jc/content/content.service';
+import { ContentService } from '@jc/content/services/content.service';
 import { ContentListItem } from '@jc/content/interfaces/content-list-item.interface';
 
 @Component({
