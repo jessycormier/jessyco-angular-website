@@ -17,17 +17,27 @@ export class ContentPageComponent {
   category!: ContentCategory;
   aiEditor = false;
   markdown!: string;
-
   constructor(private route: ActivatedRoute) {
     this.route.data.subscribe((data) => {
-
       this.data = data['content'] as Content;
-      this.id = this.data.frontmatter.id;
-      this.date = this.data.frontmatter.date;
-      this.title = this.data.frontmatter.title;
-      this.category = this.data.frontmatter.category;
-      this.aiEditor = this.data.frontmatter.aiEditor ?? false;
-      this.markdown = this.data.markdown;
+
+      // Add null checks to prevent errors during SSR prerendering
+      if (this.data && this.data.frontmatter) {
+        this.id = this.data.frontmatter.id;
+        this.date = this.data.frontmatter.date;
+        this.title = this.data.frontmatter.title;
+        this.category = this.data.frontmatter.category;
+        this.aiEditor = this.data.frontmatter.aiEditor ?? false;
+        this.markdown = this.data.markdown;
+      } else {
+        // Handle null data gracefully
+        this.id = '';
+        this.date = '';
+        this.title = 'Content not found';
+        this.category = ContentCategory.Blog;
+        this.aiEditor = false;
+        this.markdown = '# Content not available\n\nThis content could not be loaded.';
+      }
     });
   }
 }

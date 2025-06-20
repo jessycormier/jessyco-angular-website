@@ -2,6 +2,7 @@
 
 # Site specific
 public/content/index.json
+public/content/routes.txt
 
 # Compiled output
 /dist

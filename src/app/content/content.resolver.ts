@@ -3,18 +3,24 @@ import { ResolveFn, Router } from '@angular/router';
 import { catchError, of, switchMap } from 'rxjs';
 import { ContentService } from './services/content.service';
 import { CategoryValidationService } from './services/category-validation.service';
+import { isPlatformBrowser } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 export const contentResolver: ResolveFn<any | null> = (route) => {
   const contentService = inject(ContentService);
   const categoryValidationService = inject(CategoryValidationService);
   const router = inject(Router);
+  const platformId = inject(PLATFORM_ID);
 
   // Get category and id from route parameters
   const categoryParam = route.paramMap.get('category');
   const id = route.paramMap.get('id');
 
   if (!categoryParam) {
-    router.navigate(['/error/404']);
+    // Only navigate during browser rendering, not during SSR
+    if (isPlatformBrowser(platformId)) {
+      router.navigate(['/error/404']);
+    }
     return of(null);
   }
 
@@ -22,7 +28,10 @@ export const contentResolver: ResolveFn<any | null> = (route) => {
   return categoryValidationService.getValidCategoryEnum(categoryParam).pipe(
     switchMap((category) => {
       if (!category) {
-        router.navigate(['/error/404']);
+        // Only navigate during browser rendering, not during SSR
+        if (isPlatformBrowser(platformId)) {
+          router.navigate(['/error/404']);
+        }
         return of(null);
       }
 
@@ -31,7 +40,10 @@ export const contentResolver: ResolveFn<any | null> = (route) => {
         // Content request (e.g., /blog/my-post)
         return contentService.getContent(category, id).pipe(
           catchError(() => {
-            router.navigate(['/error/404']);
+            // Only navigate during browser rendering, not during SSR
+            if (isPlatformBrowser(platformId)) {
+              router.navigate(['/error/404']);
+            }
             return of(null);
           })
         );
@@ -39,7 +51,10 @@ export const contentResolver: ResolveFn<any | null> = (route) => {
         // List request (e.g., /blog)
         return contentService.getCategory(category).pipe(
           catchError(() => {
-            router.navigate(['/error/404']);
+            // Only navigate during browser rendering, not during SSR
+            if (isPlatformBrowser(platformId)) {
+              router.navigate(['/error/404']);
+            }
             return of(null);
           })
         );
